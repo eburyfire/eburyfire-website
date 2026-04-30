@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="London fire alarm maintenance and gas suppression contractor. Same engineer every visit, published pricing, plain-English reports. Launching late 2026.">
+<link rel="canonical" href="https://eburyfire.co.uk/">
+<title>Ebury Fire Systems. Fire alarm maintenance for London buildings</title>
+<!-- App icons (favicons + iOS home screen + Android + Windows Tile + PWA) -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#F26522">
+<meta name="msapplication-config" content="browserconfig.xml">
+<meta name="apple-mobile-web-app-title" content="Ebury Fire">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<!-- Open Graph (WhatsApp, LinkedIn, Facebook, iMessage previews) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ebury Fire Systems">
+<meta property="og:description" content="Fire alarm specialists for companies let down by fire alarm specialists. London. Coming late 2026.">
+<meta property="og:url" content="https://eburyfire.co.uk">
+<meta property="og:image" content="https://eburyfire.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Ebury Fire Systems">
+
+<!-- Twitter / X card preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ebury Fire Systems">
+<meta name="twitter:description" content="Fire alarm specialists for companies let down by fire alarm specialists. London. Coming late 2026.">
+<meta name="twitter:image" content="https://eburyfire.co.uk/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preload key Inter weights for fastest first paint, prevents flash-of-fallback-font on slow connections -->
+<link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50ojIw2yZAOA.woff2" as="font" type="font/woff2" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F26522;
+    --ink: #1A1A1A;
+    --stone: #6F6A60;
+    --cream: #F5F1EC;
+    --line: #D9D2C5;
+  }
+  /* Modern CSS reset for cross-device consistency */
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; padding: 0; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga";
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: hidden;
+  }
+  /* Reset form element appearance so iOS, Android, Windows all start from the same baseline */
+  button, input, textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    border-radius: 0;
+  }
+  input::-ms-clear { display: none; }
+  /* Better default image/svg rendering */
+  img, svg { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .brand { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; }
+  .brand .dot { color: var(--orange); }
+  .brand .tail { font-weight: 300; margin-left: 6px; color: var(--ink); }
+  .badge {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--stone);
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: white;
+  }
+
+  .hero { padding: 96px 0 64px; }
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--ink);
+    max-width: 18ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--orange); }
+  .hero .lede {
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--stone);
+    max-width: 56ch;
+    line-height: 1.6;
+  }
+  .hero-meta {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 36px;
+    font-size: 13px;
+    color: var(--stone);
+  }
+  .hero-meta span::before { content: '· '; color: var(--orange); margin-right: 6px; }
+  .hero-meta span:first-child::before { content: ''; margin: 0; }
+
+  .grid { display: grid; gap: 32px; padding: 64px 0; border-top: 1px solid var(--line); }
+  .grid h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--stone);
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+  .grid p {
+    font-size: 17px;
+    color: var(--ink);
+    max-width: 60ch;
+    line-height: 1.7;
+  }
+  .grid p + p { margin-top: 16px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 32px; }
+  .card {
+    background: white;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+  .card .num {
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .card p {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+
+  .ethos {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 28ch;
+    padding: 24px 0 24px 28px;
+    border-left: 3px solid var(--orange);
+    margin-bottom: 32px;
+    letter-spacing: -0.3px;
+  }
+  .commitments {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+  }
+  .commit {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .commit .num {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .commit h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .commit p {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.6;
+    max-width: none;
+  }
+  .hero-cta {
+    display: inline-block;
+    margin-top: 36px;
+    padding: 16px 28px;
+    background: var(--ink);
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+  @media (hover: hover) { .hero-cta:hover { background: var(--orange); } }
+
+  .versus-section { background: white; }
+  .versus {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 15px;
+  }
+  .versus th, .versus td {
+    text-align: left;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .versus th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--stone);
+    font-weight: 600;
+    border-bottom: 2px solid var(--ink);
+  }
+  .versus td:first-child {
+    color: var(--stone);
+    width: 45%;
+    font-style: italic;
+  }
+  .versus td:last-child {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  @media (max-width: 600px) {
+    .versus, .versus tr, .versus td, .versus th { display: block; width: 100%; }
+    .versus tr { padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .versus th { display: none; }
+    .versus td { padding: 4px 0; border: none; }
+    .versus td:first-child::before { content: "Industry: "; color: var(--orange); font-weight: 600; font-style: normal; letter-spacing: 0.5px; font-size: 11px; text-transform: uppercase; display: block; }
+    .versus td:last-child::before { content: "Us: "; color: var(--orange); font-weight: 600; letter-spacing: 0.5px; font-size: 11px; text-transform: uppercase; display: block; margin-top: 8px; }
+  }
+
+  .perks {
+    list-style: none;
+    margin: 0 0 28px 0;
+    padding: 0;
+  }
+  .perks li {
+    padding: 10px 0 10px 28px;
+    color: var(--cream);
+    font-size: 14px;
+    position: relative;
+    line-height: 1.5;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .perks li:first-child { border-top: none; }
+  .perks li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  .form-state {
+    padding: 20px 24px;
+    border-radius: 3px;
+    margin-bottom: 28px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .form-success {
+    background: rgba(242, 101, 34, 0.12);
+    border-left: 3px solid var(--orange);
+    color: var(--cream);
+  }
+  .form-error {
+    background: rgba(255, 100, 100, 0.1);
+    border-left: 3px solid #f55;
+    color: #f88;
+  }
+  .field-error {
+    display: block;
+    color: #f88;
+    font-size: 12px;
+    margin-top: -6px;
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+  .field-error:empty { display: none; }
+  [data-fs-submit-btn]:disabled { opacity: 0.6; cursor: not-allowed; }
+  [data-fs-field][aria-invalid="true"] {
+    border-color: #f55 !important;
+    background: rgba(255, 100, 100, 0.05) !important;
+  }
+
+  @media (max-width: 600px) {
+    .form-card form { grid-template-columns: 1fr; }
+  }
+  .form-section { padding: 80px 0; border-top: 1px solid var(--line); }
+  .form-card {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 56px 48px;
+    border-radius: 4px;
+    max-width: 720px;
+  }
+  .form-card h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .form-card .dot { color: var(--orange); }
+  .form-card p {
+    font-size: 15px;
+    color: rgba(245, 241, 236, 0.7);
+    margin-bottom: 28px;
+    max-width: 50ch;
+    line-height: 1.6;
+  }
+  .form-card form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 14px;
+  }
+  .form-row { display: flex; flex-direction: column; }
+  .form-row-full { grid-column: 1 / -1; }
+  .form-row-actions { margin-top: 8px; }
+  .form-row label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(245, 241, 236, 0.65);
+    margin-bottom: 8px;
+  }
+  .form-row label .req { color: var(--orange); margin-left: 2px; }
+  .form-row label .opt {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-left: 4px;
+  }
+  .form-card input[type="email"], .form-card input[type="text"] {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.06);
+    color: var(--cream);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 16px;          /* 16px prevents iOS Safari from auto-zooming on focus */
+    line-height: 1.4;
+    transition: border-color 0.15s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .form-card input[type="email"]::placeholder, .form-card input[type="text"]::placeholder {
+    color: rgba(245, 241, 236, 0.4);
+    opacity: 1;               /* Firefox defaults to 0.54, force to 1 for consistency */
+  }
+  .form-card input[type="email"]:focus, .form-card input[type="text"]:focus {
+    outline: none;
+    border-color: var(--orange);
+    background: rgba(255,255,255,0.08);
+  }
+  .form-card input::placeholder { color: rgba(245, 241, 236, 0.4); }
+  .form-card button {
+    width: 100%;
+    padding: 16px 28px;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.15s;
+  }
+  @media (hover: hover) { .form-card button:hover { background: #d9531a; } }
+  .form-card .small {
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(245, 241, 236, 0.5);
+  }
+
+  .contact { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); font-size: 14px; }
+  .contact dt { color: var(--stone); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+  .contact dd { color: var(--ink); font-weight: 500; }
+  .contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--orange); }
+
+  footer {
+    padding: 48px 0 64px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  footer em { font-style: italic; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 64px 0 48px; }
+    .form-card { padding: 40px 28px; }
+    .contact { grid-template-columns: 1fr; }
+  }
+</style>
+<!-- Structured data: tells Google this is a London fire-alarm contractor (LocalBusiness schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://eburyfire.co.uk/#business",
+  "name": "Ebury Fire Systems Ltd",
+  "alternateName": "Ebury Fire",
+  "url": "https://eburyfire.co.uk",
+  "image": "https://eburyfire.co.uk/og-image.png",
+  "logo": "https://eburyfire.co.uk/icon-512.png",
+  "email": "hello@eburyfire.co.uk",
+  "description": "BAFE-track fire alarm and gas suppression maintenance contractor for London buildings. Same engineer every visit, published pricing, plain-English reports. Launching late 2026.",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressRegion": "Greater London",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "London"},
+    {"@type": "AdministrativeArea", "name": "Westminster"},
+    {"@type": "AdministrativeArea", "name": "Kensington and Chelsea"},
+    {"@type": "AdministrativeArea", "name": "Camden"},
+    {"@type": "AdministrativeArea", "name": "Hammersmith and Fulham"},
+    {"@type": "AdministrativeArea", "name": "City of London"},
+    {"@type": "AdministrativeArea", "name": "Brent"},
+    {"@type": "AdministrativeArea", "name": "Ealing"},
+    {"@type": "AdministrativeArea", "name": "Hounslow"}
+  ],
+  "knowsAbout": [
+    "BS 5839-1:2025 fire detection and alarm",
+    "BS EN 15004 gas suppression",
+    "BAFE SP203-1",
+    "BAFE SP203-3",
+    "Aspirating smoke detection",
+    "VESDA",
+    "F-Gas regulation EC 304/2008"
+  ],
+  "founder": {
+    "@type": "Organization",
+    "name": "Ebury Group"
+  },
+  "foundingDate": "2026",
+  "sameAs": []
+}
+</script>
+
+<!-- Structured data: contact entry (ContactPoint) tells Google how customers reach us -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://eburyfire.co.uk/#organization",
+  "name": "Ebury Fire Systems Ltd",
+  "url": "https://eburyfire.co.uk",
+  "logo": "https://eburyfire.co.uk/icon-512.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@eburyfire.co.uk",
+    "contactType": "customer service",
+    "areaServed": "GB",
+    "availableLanguage": "en"
+  }
+}
+</script>
+
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">ebury<span class="dot">.</span><span class="tail">fire systems</span></div>
+    <span class="badge">Launching late 2026</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Fire alarm specialists for companies let down by <em>fire alarm specialists.</em></h1>
+    <p class="lede">London. Coming late 2026. A new BAFE-track fire alarm and gas suppression contractor for property and facilities professionals. Same engineer every visit, published pricing, plain-English reports, 24/7 line answered by us. The service standards a serious building deserves.</p>
+    <div class="hero-meta">
+      <span>BS 5839-1:2025 fire detection and alarm</span>
+      <span>BS EN 15004 gas suppression</span>
+      <span>London &amp; South East — Westminster, Kensington, Camden, Mayfair, City</span>
+    </div>
+    <a class="hero-cta" href="#founding-50">Join the Founding 50 →</a>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="wrap">
+    <h2>Our standard</h2>
+    <blockquote class="ethos">
+      Our customer is the most important part of this business. We are dependent on them, not the other way around.
+    </blockquote>
+    <p>The fire systems industry has coasted on opacity, broken promises and one-line reports for too long. Phones unanswered. Engineers late or no-show. Quotes designed to confuse. National contractors sub-contracting your job to someone three counties away. We're building Ebury Fire Systems by ignoring the industry's bad habits and copying the rituals of the service businesses customers love.</p>
+    <div class="commitments">
+      <div class="commit"><span class="num">01</span><div><h3>Same engineer every visit</h3><p>You learn his name. He learns your building. The same trained pair of eyes on every service, every callout, every audit.</p></div></div>
+      <div class="commit"><span class="num">02</span><div><h3>Published pricing</h3><p>The same rate card for every customer. Quotes you can compare line for line. No quotes designed to confuse.</p></div></div>
+      <div class="commit"><span class="num">03</span><div><h3>Plain-English report every time</h3><p>What we did. What's outstanding. What it would cost to put right. No jargon, no one-line "tested, all functional" deliverables.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="grid versus-section">
+  <div class="wrap">
+    <h2>The industry vs. us</h2>
+    <table class="versus">
+      <tr>
+        <th>The industry says</th>
+        <th>We commit to</th>
+      </tr>
+      <tr>
+        <td>"Engineer's been delayed, sometime today."</td>
+        <td>Engineer photo and 30-minute arrival window, emailed at 8am.</td>
+      </tr>
+      <tr>
+        <td>"Tested, all functional."</td>
+        <td>Plain-English report, every visit, with photo evidence.</td>
+      </tr>
+      <tr>
+        <td>Auto-renews each year, 8% uplift hidden in the small print.</td>
+        <td>30-day notice exit, always. Lifetime price freeze for Founding 50.</td>
+      </tr>
+      <tr>
+        <td>Different sub-contractor every callout.</td>
+        <td>Same named engineer, every visit.</td>
+      </tr>
+      <tr>
+        <td>"Your panel's end-of-life. You need a £8,000 upgrade."</td>
+        <td>No quarterly scare campaigns. We tell you what's wrong, not what's most profitable to fix.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="wrap">
+    <h2>What we'll do</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Fire alarm maintenance</h3>
+        <p>BS 5839-1:2025 design, installation, commissioning and maintenance. BAFE SP203-1 scope. Care homes, hotels, HMOs, blocks, commercial.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Gas suppression</h3>
+        <p>BS EN 15004 / BS 6266 specialist scope. Server rooms, archives, livery halls, family offices, vaults. BAFE SP203-3 scope.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Free compliance audits</h3>
+        <p>Free 30-minute compliance check for every prospect. Written gap report on the changes the new BS 5839-1:2025 standard demands.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>Transparent pricing</h3>
+        <p>The same published rate card for every customer. Quotes you can compare line for line. Customers know what they're paying for, every visit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="wrap">
+    <h2>How we got here</h2>
+    <p>Ebury Fire Systems started with your complaint. Heard hundreds of times, from hundreds of customers, across 17 years in the trade.</p>
+    <p>Our founding engineer spent those years at one of the world's largest fire-systems contractors, watching capable engineers being let down by an operating model nobody had updated in decades. Slow phones. Rotated engineers. Opaque quotes. One-line reports. Property managers, care home directors, hotel operations leads — all describing the same frustrations, year after year. The fix wasn't better engineering. The engineering was already there. The fix was a new operating model.</p>
+    <p>We kept the technical depth. 30 years of combined fire-systems experience across our team. Then rebuilt everything else around it.</p>
+  </div>
+</section>
+
+
+<section class="form-section" id="founding-50">
+  <div class="wrap">
+    <div class="form-card">
+      <h2>Be one of the Founding 50<span class="dot">.</span></h2>
+      <p>We're taking just 50 customers in our first launch quarter. Tell us about your buildings. We'll come back with launch dates and book a free compliance check the moment we're live.</p>
+      <ul class="perks">
+        <li>Lifetime price freeze on your annual rate. We never raise it on you, even when our published prices go up for new customers.</li>
+        <li>5% off the published rate card for the first 5 years</li>
+        <li>Your name or your firm's logo on our website if you'd like. Visible to every prospect after you.</li>
+      </ul>
+      <!-- Success and error message containers (managed by Formspree AJAX SDK) -->
+      <div data-fs-success class="form-state form-success" hidden>Thanks. You're on the Founding 50 list. We'll come back with launch dates and book your free compliance check the moment we're live.</div>
+      <div data-fs-error class="form-state form-error" hidden></div>
+
+      <!-- Form: action + method work as fallback if JS disabled. AJAX SDK takes over when JS available. -->
+      <form id="founding-50-form" action="https://formspree.io/f/mbdwrapv" method="POST" novalidate>
+        <div class="form-row form-row-full">
+          <label for="founding-email">Email <span class="req">*</span></label>
+          <input type="email" id="founding-email" name="email" placeholder="your@email.com" required data-fs-field>
+          <span class="field-error" data-fs-error="email"></span>
+        </div>
+        <div class="form-row form-row-full">
+          <label for="founding-building">Building or property type</label>
+          <input type="text" id="founding-building" name="building_type" placeholder="Care home, hotel, residential block, etc." data-fs-field>
+        </div>
+        <div class="form-row">
+          <label for="founding-postcode">Site postcode</label>
+          <input type="text" id="founding-postcode" name="postcode" placeholder="SW1A 1AA" data-fs-field>
+        </div>
+        <div class="form-row">
+          <label for="founding-contractor">Current contractor <span class="opt">(optional)</span></label>
+          <input type="text" id="founding-contractor" name="current_contractor" placeholder="e.g. Chubb, Marlowe, JCI, current contractor" data-fs-field>
+        </div>
+        <div class="form-row form-row-full">
+          <label for="founding-expiry">Contract expiry <span class="opt">(optional)</span></label>
+          <input type="text" id="founding-expiry" name="contract_expiry" placeholder="Approximate month" data-fs-field>
+        </div>
+        <input type="hidden" name="_subject" value="Founding 50 enquiry from eburyfire.co.uk">
+        <input type="hidden" name="_replyto" value="email">
+        <!-- Honeypot for spam bots. Humans never fill this. -->
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <div class="form-row form-row-full form-row-actions">
+          <button type="submit" data-fs-submit-btn>Tell us about your buildings</button>
+        </div>
+      </form>
+      <div class="small">We'll only email you about Ebury Fire Systems' launch and your Founding 50 onboarding. No third-party marketing. Unsubscribe at any point.</div>
+    </div>
+
+    <dl class="contact">
+      <div>
+        <dt>Email</dt>
+        <dd><a href="mailto:hello@eburyfire.co.uk">hello@eburyfire.co.uk</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <em>Ebury Fire Systems Ltd · Registered in England and Wales, company no. [pending]<br>
+      Registered office: [registered office address] · VAT no. [pending registration]</em>
+    </div>
+    <div>© 2026 Ebury Fire Systems Ltd</div>
+  </div>
+</footer>
+
+<!-- Formspree AJAX SDK: progressively enhances the form with inline success/error states -->
+<script>
+  window.formspree = window.formspree || function () { (window.formspree.q = window.formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#founding-50-form', formId: 'mbdwrapv' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</body>
+</html>
