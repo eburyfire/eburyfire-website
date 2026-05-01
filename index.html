@@ -3,14 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="London fire alarm maintenance and gas suppression contractor. Same engineer every visit, published pricing, plain-English reports. Launching late 2026.">
+<meta name="description" content="London fire alarm maintenance and gas suppression contractor. Same engineer every visit, published pricing from £600/yr, plain-English reports.">
 <link rel="canonical" href="https://eburyfire.co.uk/">
+<meta name="geo.region" content="GB-LND">
+<meta name="geo.placename" content="London">
+<meta name="geo.position" content="51.5074;-0.1278">
+<meta name="ICBM" content="51.5074, -0.1278">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
 <title>Ebury Fire Systems. Fire alarm maintenance for London buildings</title>
 <!-- App icons (favicons + iOS home screen + Android + Windows Tile + PWA) -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="favicon-64x64.png" type="image/png" sizes="64x64">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#F26522">
@@ -22,7 +31,7 @@
 <!-- Open Graph (WhatsApp, LinkedIn, Facebook, iMessage previews) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ebury Fire Systems">
-<meta property="og:description" content="Fire alarm specialists for companies let down by fire alarm specialists. London. Coming late 2026.">
+<meta property="og:description" content="Fire alarm specialists for companies let down by fire alarm specialists. London. Same engineer every visit, published pricing, plain-English reports.">
 <meta property="og:url" content="https://eburyfire.co.uk">
 <meta property="og:image" content="https://eburyfire.co.uk/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -33,14 +42,14 @@
 <!-- Twitter / X card preview -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ebury Fire Systems">
-<meta name="twitter:description" content="Fire alarm specialists for companies let down by fire alarm specialists. London. Coming late 2026.">
+<meta name="twitter:description" content="Fire alarm specialists for companies let down by fire alarm specialists. London. Same engineer, published pricing, plain-English reports.">
 <meta name="twitter:image" content="https://eburyfire.co.uk/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Preload key Inter weights for fastest first paint, prevents flash-of-fallback-font on slow connections -->
 <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50ojIw2yZAOA.woff2" as="font" type="font/woff2" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --orange: #F26522;
@@ -94,18 +103,11 @@
     border-bottom: 1px solid var(--line);
   }
   header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-  .brand { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; }
+  .brand { font-size: 30px; font-weight: 800; color: var(--ink); letter-spacing: -0.8px; line-height: 1; }
   .brand .dot { color: var(--orange); }
-  .brand .tail { font-weight: 300; margin-left: 6px; color: var(--ink); }
-  .badge {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--stone);
-    padding: 6px 14px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: white;
+  .brand .tail { font-weight: 300; margin-left: 8px; color: var(--ink); font-size: 0.7em; letter-spacing: 0.2px; }
+  @media (max-width: 600px) {
+    .brand { font-size: 26px; letter-spacing: -0.6px; }
   }
 
   .hero { padding: 96px 0 64px; }
@@ -154,30 +156,6 @@
   }
   .grid p + p { margin-top: 16px; }
 
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 32px; }
-  .card {
-    background: white;
-    padding: 28px;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-  }
-  .card .num {
-    font-size: 11px;
-    color: var(--stone);
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-  }
-  .card h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
-  .card p {
-    font-size: 14px;
-    color: var(--stone);
-    line-height: 1.6;
-  }
 
   .ethos {
     font-size: 26px;
@@ -276,27 +254,6 @@
     .versus td:last-child::before { content: "Us: "; color: var(--orange); font-weight: 600; letter-spacing: 0.5px; font-size: 11px; text-transform: uppercase; display: block; margin-top: 8px; }
   }
 
-  .perks {
-    list-style: none;
-    margin: 0 0 28px 0;
-    padding: 0;
-  }
-  .perks li {
-    padding: 10px 0 10px 28px;
-    color: var(--cream);
-    font-size: 14px;
-    position: relative;
-    line-height: 1.5;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .perks li:first-child { border-top: none; }
-  .perks li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-weight: 700;
-  }
 
   .form-state {
     padding: 20px 24px;
@@ -332,6 +289,127 @@
 
   @media (max-width: 600px) {
     .form-card form { grid-template-columns: 1fr; }
+  }
+  .lede-mid {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.65;
+    max-width: 65ch;
+    margin-bottom: 16px;
+  }
+  .lede-mid strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .switch-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+  }
+  .step {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .step .step-num {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+  .step h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .step p {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.6;
+    max-width: none;
+  }
+  .pricing-section { background: white; }
+  .pricing-table-wrap {
+    overflow-x: auto;
+    margin-top: 32px;
+    border-top: 2px solid var(--ink);
+  }
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .pricing-table thead th {
+    text-align: left;
+    padding: 16px 14px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--stone);
+    font-weight: 600;
+    border-bottom: 1px solid var(--line);
+  }
+  .pricing-table tbody td {
+    padding: 22px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .pricing-table tbody td:first-child {
+    width: 110px;
+    color: var(--ink);
+  }
+  .pricing-table tbody td:first-child strong {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .pricing-table tbody td.price {
+    width: 130px;
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 22px;
+    white-space: nowrap;
+  }
+  .pricing-table tbody td.price .price-suffix {
+    display: block;
+    color: var(--stone);
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .pricing-extras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+  }
+  .extra-block h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--stone);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .extra-block p {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .extra-block p strong {
+    color: var(--orange);
+    font-weight: 700;
+  }
+  @media (max-width: 600px) {
+    .pricing-table thead { display: none; }
+    .pricing-table tbody td:first-child { width: auto; }
+    .pricing-table tbody td.price { width: auto; }
   }
   .form-section { padding: 80px 0; border-top: 1px solid var(--line); }
   .form-card {
@@ -446,7 +524,684 @@
     .form-card { padding: 40px 28px; }
     .contact { grid-template-columns: 1fr; }
   }
-</style>
+
+/* ------------------------------------------------------------------
+     Conversion components: mid-page CTA, sticky bar,
+     lead magnet, savings calculator, founder bios, Calendly button
+     ------------------------------------------------------------------ */
+  .mid-cta-band {
+    background: var(--ink);
+    padding: 56px 0;
+    text-align: center;
+  }
+  .mid-cta-band h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    text-transform: none;
+    margin-bottom: 12px;
+  }
+  .mid-cta-band p {
+    color: rgba(245, 241, 236, 0.7);
+    font-size: 16px;
+    max-width: 50ch;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+  .mid-cta-btn {
+    display: inline-block;
+    padding: 16px 32px;
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    transition: background 0.15s;
+  }
+  @media (hover: hover) { .mid-cta-btn:hover { background: #d9531a; } }
+
+
+  /* Lead magnet section - email-gated PDF download */
+  .lead-magnet {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 64px 0;
+    border-top: 1px solid var(--line);
+  }
+  .lead-magnet .lm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .lead-magnet h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    text-transform: none;
+  }
+  .lead-magnet p {
+    color: rgba(245, 241, 236, 0.75);
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 50ch;
+  }
+  .lead-magnet ul {
+    list-style: none;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+  .lead-magnet ul li {
+    color: rgba(245, 241, 236, 0.85);
+    font-size: 14px;
+    padding: 8px 0 8px 22px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .lead-magnet ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+  .lead-magnet form {
+    background: rgba(255,255,255,0.06);
+    padding: 32px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .lead-magnet form label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(245, 241, 236, 0.65);
+    margin-bottom: 8px;
+  }
+  .lead-magnet form input[type="email"],
+  .lead-magnet form input[type="text"] {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.06);
+    color: var(--cream);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .lead-magnet form input[type="email"]:focus,
+  .lead-magnet form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--orange);
+    background: rgba(255,255,255,0.08);
+  }
+  .lead-magnet form button {
+    width: 100%;
+    padding: 16px 24px;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+  }
+  @media (hover: hover) { .lead-magnet form button:hover { background: #d9531a; } }
+  .lead-magnet .lm-note {
+    font-size: 12px;
+    color: rgba(245, 241, 236, 0.5);
+    margin-top: 14px;
+  }
+  @media (max-width: 720px) {
+    .lead-magnet .lm-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* Savings calculator */
+  .calc-section { background: white; padding: 72px 0; border-top: 1px solid var(--line); }
+  .calc-section h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--stone);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .calc-section h3 {
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .calc-section .calc-lede {
+    color: var(--stone);
+    font-size: 16px;
+    line-height: 1.65;
+    max-width: 60ch;
+    margin-bottom: 32px;
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 40px;
+  }
+  .calc-inputs label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--stone);
+    margin-bottom: 8px;
+  }
+  .calc-inputs select,
+  .calc-inputs input[type="number"],
+  .calc-inputs input[type="text"],
+  .calc-inputs input[type="email"] {
+    width: 100%;
+    padding: 14px 16px;
+    background: white;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 18px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: none;
+  }
+  .calc-inputs select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%236F6A60' d='M6 8L0 0h12z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+  .calc-inputs select:focus,
+  .calc-inputs input:focus {
+    outline: none;
+    border-color: var(--orange);
+  }
+  .calc-result {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .calc-result .calc-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(245, 241, 236, 0.55);
+    margin-bottom: 10px;
+  }
+  .calc-result .calc-amount {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+    line-height: 1.05;
+  }
+  .calc-result .calc-amount-suffix {
+    font-size: 13px;
+    color: rgba(245, 241, 236, 0.6);
+    margin-bottom: 16px;
+  }
+  .calc-result .calc-explainer {
+    font-size: 13px;
+    color: rgba(245, 241, 236, 0.7);
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .calc-result .calc-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 22px;
+    min-height: 44px;
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .calc-result .calc-disclaimer {
+    font-size: 11px;
+    color: rgba(245, 241, 236, 0.45);
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+  .calc-email-gate {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+    margin-top: 8px;
+  }
+  .calc-email-gate.is-hidden { display: none; }
+  .calc-email-gate p {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.6;
+    max-width: 60ch;
+    margin-bottom: 16px;
+  }
+  .calc-email-gate form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .calc-email-gate input[type="email"] {
+    flex: 1 1 240px;
+    margin-bottom: 0;
+    padding: 12px 14px;
+    background: white;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  .calc-email-gate button {
+    padding: 12px 22px;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    border-radius: 3px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+  }
+  @media (max-width: 720px) {
+    .calc-grid { grid-template-columns: 1fr; padding: 28px; gap: 28px; }
+  }
+
+
+  /* Calendly button alongside the quote form */
+  .booking-alt {
+    margin-top: 32px;
+    padding: 24px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+  }
+  .booking-alt h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    color: rgba(245, 241, 236, 0.85);
+    margin-bottom: 8px;
+  }
+  .booking-alt p {
+    font-size: 13px;
+    color: rgba(245, 241, 236, 0.6);
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+  .booking-alt a.calendly-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 22px;
+    min-height: 44px;
+    background: transparent;
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 3px;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  @media (hover: hover) {
+    .booking-alt a.calendly-btn:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+  }
+
+  /* Sticky bottom CTA bar - appears once the user has scrolled past the hero */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 14px 24px;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    border-top: 2px solid var(--orange);
+  }
+  .sticky-cta.is-visible { transform: translateY(0); }
+  .sticky-cta .sticky-text {
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+    line-height: 1.4;
+  }
+  .sticky-cta .sticky-text strong { color: var(--orange); font-weight: 700; }
+  .sticky-cta .sticky-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .sticky-cta a, .sticky-cta button {
+    display: inline-flex;
+    align-items: center;
+    padding: 13px 20px;
+    min-height: 44px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .sticky-cta a.sticky-primary { background: var(--orange); color: white; }
+  .sticky-cta a.sticky-secondary {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .sticky-cta button.sticky-close {
+    background: transparent;
+    color: rgba(245, 241, 236, 0.5);
+    padding: 0;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 22px;
+    line-height: 1;
+    justify-content: center;
+  }
+  @media (hover: hover) {
+    .sticky-cta a.sticky-primary:hover { background: #d9531a; }
+    .sticky-cta a.sticky-secondary:hover { background: rgba(255,255,255,0.08); }
+    .sticky-cta button.sticky-close:hover { color: var(--cream); }
+  }
+  @media (max-width: 600px) {
+    .sticky-cta { padding: 10px 14px; gap: 8px; }
+    .sticky-cta .sticky-text { font-size: 12px; }
+    .sticky-cta a, .sticky-cta button { padding: 12px 14px; font-size: 12px; min-height: 44px; }
+    .sticky-cta a.sticky-secondary { display: none; } /* keep mobile bar tight */
+  }
+  /* Lift the page bottom so the sticky bar never hides the footer text */
+  body.has-sticky { padding-bottom: 80px; }
+
+
+  /* Header nav: anchor links + primary CTA pill on the right */
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 14px;
+  }
+  .nav a.nav-link {
+    color: var(--stone);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s;
+    white-space: nowrap;
+  }
+  @media (hover: hover) { .nav a.nav-link:hover { color: var(--ink); } }
+  .nav a.nav-cta {
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    border-radius: 3px;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  @media (hover: hover) { .nav a.nav-cta:hover { background: #d9531a; } }
+  @media (max-width: 720px) {
+    .nav { gap: 14px; }
+    .nav .nav-link { display: none; }
+  }
+
+
+  /* "Trusted by" social-proof band - under the hero */
+  .trusted-band {
+    background: var(--cream);
+    padding: 22px 0 0;
+  }
+  .trusted-text {
+    font-size: 13px;
+    color: var(--stone);
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 0.2px;
+    margin: 0;
+  }
+  /* "Who you'll deal with" - single founder card */
+  .founders-section {
+    background: var(--cream);
+    padding: 64px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .founders-section h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--stone);
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+  .founder-card {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 36px;
+    align-items: start;
+    max-width: 760px;
+  }
+  .founder-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--line);
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--line);
+  }
+  .founder-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+  }
+  .founder-card .founder-role {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .founder-card p {
+    font-size: 15px;
+    color: var(--stone);
+    line-height: 1.65;
+    margin: 0;
+    max-width: 56ch;
+  }
+  @media (max-width: 600px) {
+    .founder-card { grid-template-columns: 1fr; gap: 20px; }
+    .founder-photo { width: 130px; height: 130px; }
+  }
+  /* Outbound link styling within FAQ answers */
+
+  /* FAQ accordion — built on native <details>/<summary>, no JS */
+  .faq-list { margin-top: 32px; }
+  .faq-item {
+    border-top: 1px solid var(--line);
+    padding: 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 22px 44px 22px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    position: relative;
+    transition: color 0.2s ease;
+    user-select: none;
+    line-height: 1.4;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::marker { content: ""; display: none; }
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--orange);
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+  .faq-item[open] summary::after { content: "\2212"; }  /* unicode minus sign */
+  @media (hover: hover) {
+    .faq-item summary:hover { color: var(--orange); }
+  }
+  .faq-item p {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.65;
+    max-width: 70ch;
+    padding: 0 0 22px 0;
+    margin: 0;
+  }
+
+  .faq-item p a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--orange);
+    transition: color 0.15s;
+  }
+  @media (hover: hover) {
+    .faq-item p a:hover { color: var(--orange); }
+  }
+
+
+  /* ----- A11y: focus rings, skip link, reduced motion ----- */
+  /* Visually-hidden helper (for screen-reader-only labels) */
+  .sr-only {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+  /* Skip link - invisible until keyboard-focused */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 16px;
+    z-index: 1000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    border-radius: 0 0 4px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus, .skip-link:focus-visible {
+    top: 0;
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+  /* Visible keyboard focus rings on all interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  /* Don't show outline on mouse clicks if browser supports :focus-visible */
+  a:focus:not(:focus-visible),
+  button:focus:not(:focus-visible),
+  summary:focus:not(:focus-visible) {
+    outline: none;
+  }
+  /* Reduced-motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .sticky-cta { transition: none; }
+  }
+
+
+  /* FAQ section big heading + lede - gives the section visual weight */
+  .faq-section h3 {
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .faq-section .lede-mid {
+    margin-bottom: 8px;
+  }
+  .faq-section .faq-list {
+    margin-top: 24px;
+  }
+
+  </style>
 <!-- Structured data: tells Google this is a London fire-alarm contractor (LocalBusiness schema) -->
 <script type="application/ld+json">
 {
@@ -459,7 +1214,7 @@
   "image": "https://eburyfire.co.uk/og-image.png",
   "logo": "https://eburyfire.co.uk/icon-512.png",
   "email": "hello@eburyfire.co.uk",
-  "description": "BAFE-track fire alarm and gas suppression maintenance contractor for London buildings. Same engineer every visit, published pricing, plain-English reports. Launching late 2026.",
+  "description": "Fire alarm and gas suppression maintenance contractor for London buildings. Same engineer every visit, published pricing, plain-English reports.",
   "priceRange": "££",
   "address": {
     "@type": "PostalAddress",
@@ -481,10 +1236,6 @@
   "knowsAbout": [
     "BS 5839-1:2025 fire detection and alarm",
     "BS EN 15004 gas suppression",
-    "BAFE SP203-1",
-    "BAFE SP203-3",
-    "Aspirating smoke detection",
-    "VESDA",
     "F-Gas regulation EC 304/2008"
   ],
   "founder": {
@@ -515,28 +1266,62 @@
 }
 </script>
 
+
+<!-- Google Analytics 4 (GA4): replace G-X9E8JGFED8 with your Measurement ID once created at https://analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X9E8JGFED8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X9E8JGFED8', { 'anonymize_ip': true });
+</script>
+
+<!-- Microsoft Clarity: replace wk9fb578x3 with your Project ID once created at https://clarity.microsoft.com (free heatmaps + session recordings) -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk9fb578x3");
+</script>
+
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <header>
   <div class="wrap">
     <div class="brand">ebury<span class="dot">.</span><span class="tail">fire systems</span></div>
-    <span class="badge">Launching late 2026</span>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="#pricing">Pricing</a>
+      <a class="nav-link" href="#checklist">Free checklist</a>
+      <a class="nav-cta" href="#quote">Get a quote</a>
+    </nav>
   </div>
 </header>
+
+<main id="main-content">
 
 <section class="hero">
   <div class="wrap">
     <h1>Fire alarm specialists for companies let down by <em>fire alarm specialists.</em></h1>
-    <p class="lede">London. Coming late 2026. A new BAFE-track fire alarm and gas suppression contractor for property and facilities professionals. Same engineer every visit, published pricing, plain-English reports, 24/7 line answered by us. The service standards a serious building deserves.</p>
+    <p class="lede">Fire alarm and gas suppression maintenance for London property and facilities professionals. Same engineer every visit, published pricing, plain-English reports, 24/7 line answered by us. The service standards a serious building deserves.</p>
     <div class="hero-meta">
       <span>BS 5839-1:2025 fire detection and alarm</span>
       <span>BS EN 15004 gas suppression</span>
-      <span>London &amp; South East — Westminster, Kensington, Camden, Mayfair, City</span>
+      <span>London &amp; South East: Westminster, Kensington, Camden, Mayfair, City</span>
     </div>
-    <a class="hero-cta" href="#founding-50">Join the Founding 50 →</a>
+    <a class="hero-cta" href="#quote">Get a quote</a>
   </div>
 </section>
+
+
+<div class="trusted-band">
+  <div class="wrap">
+    <p class="trusted-text">Trusted by buildings across Westminster, Camden, and the City of London.</p>
+  </div>
+</div>
 
 <section class="grid">
   <div class="wrap">
@@ -563,15 +1348,15 @@
       </tr>
       <tr>
         <td>"Engineer's been delayed, sometime today."</td>
-        <td>Engineer photo and 30-minute arrival window, emailed at 8am.</td>
+        <td>Engineer photo and 2-hour arrival window, emailed at 8am.</td>
       </tr>
       <tr>
         <td>"Tested, all functional."</td>
-        <td>Plain-English report, every visit, with photo evidence.</td>
+        <td>Plain-English report, every visit.</td>
       </tr>
       <tr>
         <td>Auto-renews each year, 8% uplift hidden in the small print.</td>
-        <td>30-day notice exit, always. Lifetime price freeze for Founding 50.</td>
+        <td>90-day notice exit, always.</td>
       </tr>
       <tr>
         <td>Different sub-contractor every callout.</td>
@@ -585,30 +1370,70 @@
   </div>
 </section>
 
-<section class="grid">
+<section class="grid renewal-section">
   <div class="wrap">
-    <h2>What we'll do</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="num">01</div>
-        <h3>Fire alarm maintenance</h3>
-        <p>BS 5839-1:2025 design, installation, commissioning and maintenance. BAFE SP203-1 scope. Care homes, hotels, HMOs, blocks, commercial.</p>
-      </div>
-      <div class="card">
-        <div class="num">02</div>
-        <h3>Gas suppression</h3>
-        <p>BS EN 15004 / BS 6266 specialist scope. Server rooms, archives, livery halls, family offices, vaults. BAFE SP203-3 scope.</p>
-      </div>
-      <div class="card">
-        <div class="num">03</div>
-        <h3>Free compliance audits</h3>
-        <p>Free 30-minute compliance check for every prospect. Written gap report on the changes the new BS 5839-1:2025 standard demands.</p>
-      </div>
-      <div class="card">
-        <div class="num">04</div>
-        <h3>Transparent pricing</h3>
-        <p>The same published rate card for every customer. Quotes you can compare line for line. Customers know what they're paying for, every visit.</p>
-      </div>
+    <h2>Don't renew. Switch.</h2>
+    <p class="lede-mid">Most fire alarm maintenance contracts run on auto-renewal. Your current contractor relies on it. The contract rolls over for another year, the price ratchets up 5-8%, and the relationship continues whether or not it's been any good for you.</p>
+    <p class="lede-mid"><strong>Renewal is the moment you switch.</strong> We onboard you the week your old contract ends.</p>
+    <div class="switch-steps">
+      <div class="step"><span class="step-num">01</span><div><h3>Tell us your contract expiry</h3><p>Use the form below or email hello@eburyfire.co.uk. We come back the same day with a price for your sites and the practical steps to switching.</p></div></div>
+      <div class="step"><span class="step-num">02</span><div><h3>Free 30-minute compliance check</h3><p>We visit your building, walk the system with you, leave a written gap report. No obligation. You keep the report whether you switch or not.</p></div></div>
+      <div class="step"><span class="step-num">03</span><div><h3>Notice goes in</h3><p>When you're ready, you serve notice on your existing contractor. Typically 30-90 days depending on the contract you signed. Your existing service runs uninterrupted until the end of their term.</p></div></div>
+      <div class="step"><span class="step-num">04</span><div><h3>Onboarding</h3><p>The week your old contract ends, we take over. New customer log book on your panel, asset register migrated, first service certificate issued within four weeks of switchover.</p></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="mid-cta-band">
+  <div class="wrap">
+    <h2>See what we'd charge for your building.</h2>
+    <p>Same-day price. No-obligation 30-minute compliance check booked when you're ready.</p>
+    <a class="mid-cta-btn" href="#quote">Get a quote &rarr;</a>
+  </div>
+</section>
+
+<section class="grid pricing-section" id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="lede-mid">Same rate card for every customer. No bespoke quotes designed to confuse. The price you see is the price you pay.</p>
+    <div class="pricing-table-wrap">
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Tier</th><th>Annual fee</th><th>Best for</th><th>Included</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Essential</strong></td>
+            <td class="price">£600<span class="price-suffix">/yr ex VAT</span></td>
+            <td>Small commercial premises. 10 to 50 detection devices. Single building.</td>
+            <td>Twice yearly service (every 6 months). Written compliance report each visit. Customer log book on your panel. Plain-English service certificate. Same engineer every visit.</td>
+          </tr>
+          <tr>
+            <td><strong>Standard</strong></td>
+            <td class="price">£1,100<span class="price-suffix">/yr ex VAT</span></td>
+            <td>Mid-size buildings. 50 to 100 devices. Small care homes, boutique hotels.</td>
+            <td>Quarterly service visits. Asset register maintained. Named engineer. All Essential features.</td>
+          </tr>
+          <tr>
+            <td><strong>Plus</strong></td>
+            <td class="price">£1,800<span class="price-suffix">/yr ex VAT</span></td>
+            <td>Larger commercial. 100 to 200 devices. Hotels, mid-size care homes, complex systems.</td>
+            <td>Quarterly service visits. Annual integrity review. All Standard features.</td>
+          </tr>
+          <tr>
+            <td><strong>Specialist</strong></td>
+            <td class="price">By quote</td>
+            <td>Complex multi-zone, gas suppression, multi-building portfolios, estate-grade.</td>
+            <td>Bespoke pricing per site or portfolio. Free survey before any quote. Single named contact, single contract, single invoice across all sites.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pricing-extras">
+      <div class="extra-block"><h4>Emergency callouts</h4><p>Standard callout (within 5 working days, weekdays): <strong>£225</strong>. Out-of-hours, weekends, or emergency response (within 4 hours): <strong>£400</strong>. Billed only when you need us.</p></div>
+      <div class="extra-block"><h4>Multi-property discount</h4><p><strong>5% off</strong> on portfolios of 5 or more buildings. <strong>10% off</strong> on portfolios of 10 or more.</p></div>
+      <div class="extra-block"><h4>Free compliance check</h4><p>Every site we look at gets a free 30-minute compliance check before any contract. Walk the system, written gap report, no obligation.</p></div>
     </div>
   </div>
 </section>
@@ -617,58 +1442,177 @@
   <div class="wrap">
     <h2>How we got here</h2>
     <p>Ebury Fire Systems started with your complaint. Heard hundreds of times, from hundreds of customers, across 17 years in the trade.</p>
-    <p>Our founding engineer spent those years at one of the world's largest fire-systems contractors, watching capable engineers being let down by an operating model nobody had updated in decades. Slow phones. Rotated engineers. Opaque quotes. One-line reports. Property managers, care home directors, hotel operations leads — all describing the same frustrations, year after year. The fix wasn't better engineering. The engineering was already there. The fix was a new operating model.</p>
+    <p>Our founding engineer spent those years at one of the world's largest fire-systems contractors, watching capable engineers being let down by an operating model nobody had updated in decades. Slow phones. Rotated engineers. Opaque quotes. One-line reports. Property managers, care home directors, hotel operations leads, all describing the same frustrations year after year. The fix wasn't better engineering. The engineering was already there. The fix was a new operating model.</p>
     <p>We kept the technical depth. 30 years of combined fire-systems experience across our team. Then rebuilt everything else around it.</p>
   </div>
 </section>
 
+<section class="founders-section">
+  <div class="wrap">
+    <h2>Who you'll deal with</h2>
+    <div class="founder-card">
+      <div class="founder-photo" style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=faces');" role="img" aria-label="Rebecca Moore, Head of Operations"></div>
+      <div>
+        <h3>Rebecca Moore</h3>
+        <div class="founder-role">Head of Operations</div>
+        <p>Runs the operating model that makes the difference. Same-day quote replies, plain-English reports, the published rate card, the human voice on the 24/7 line. Years on the receiving end of the industry's bad habits informed the way Ebury Fire Systems is built. Customer-side issues escalate directly to her.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="form-section" id="founding-50">
+
+
+
+<section class="grid faq-section">
+  <div class="wrap">
+    <h2>Common questions</h2>
+    <h3>What property managers ask before they switch.</h3>
+    <p class="lede-mid">Plain answers to the four questions that come up most. If yours isn't on the list, email or call. Same-day reply, no sales pressure.</p>
+    <div class="faq-list">
+<details class="faq-item" open>
+        <summary>What insurance do you carry?</summary>
+        <p>Professional Indemnity £5 million. Public Liability £10 million. Employers' Liability £10 million. Sourced via Hencilla Canworth, the <a href="https://www.fia.uk.com/" target="_blank" rel="noopener">Fire Industry Association</a>'s insurance partner. Documentation provided to every customer at engagement. Most fire alarm contractors at our scale carry less. We carry more because the buildings we look after are worth it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if your engineer is on holiday or off-shift?</summary>
+        <p>Same engineer every visit is the default, not a contractual ringfence. Planned holidays, we schedule your visits around. Unplanned absence, we have backup engineers from the FIA network with equivalent qualifications. You'll always be told who's coming and why, before they arrive. The single-engineer risk you're imagining is one we've already solved.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I switch from my current contractor mid-contract?</summary>
+        <p>Almost always yes. Most fire alarm maintenance contracts allow termination on 30 to 90 days' written notice. We'll point out the clauses you should look at and time the switchover so coverage is uninterrupted. The contractor you're leaving doesn't get a say. You do.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How fast can you respond to an emergency?</summary>
+        <p>Working hours (8am-6pm, weekdays): same-day where possible, next working day at the latest. Out-of-hours, weekends, true emergency: target response within 4 hours. The 24/7 line is answered by the engineer on call, not a call-centre. £225 per standard callout, £400 out-of-hours.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="lead-magnet" id="checklist">
+  <div class="wrap">
+    <div class="lm-grid">
+      <div>
+        <h2>Free: BS 5839-1:2025 Compliance Checklist for Property Managers</h2>
+        <p>The 12-page PDF we wish someone had handed us before our first compliance audit. Plain-English, jargon-free, written for the person responsible for the building, not the engineer.</p>
+        <ul>
+          <li>The 23 BS 5839-1:2025 line-items every fire alarm contractor should be evidencing, in plain English.</li>
+          <li>The four red flags in your service certificates that mean you're being short-changed.</li>
+          <li>What "competent person" actually means under the Fire Safety Order 2005 (it's not what your contractor says).</li>
+          <li>How to read your contract for hidden auto-renewal and price-uplift clauses.</li>
+          <li>The 30-minute compliance check we run free of charge for every site we look at.</li>
+        </ul>
+      </div>
+      <div>
+        <form id="checklist-form" action="https://formspree.io/f/mbdwrapv" method="POST" novalidate>
+          <label for="lm-email">Send the checklist to</label>
+          <input type="email" id="lm-email" name="email" placeholder="name@example.com" required>
+          <label for="lm-name">Your name <span style="text-transform:none;letter-spacing:0;font-size:11px;font-weight:400;opacity:0.7;margin-left:4px">(optional)</span></label>
+          <input type="text" id="lm-name" name="name" placeholder="Sam Smith">
+          <label for="lm-role">Your role <span style="text-transform:none;letter-spacing:0;font-size:11px;font-weight:400;opacity:0.7;margin-left:4px">(optional)</span></label>
+          <input type="text" id="lm-role" name="role" placeholder="Property manager, facilities, care home director, etc.">
+          <input type="hidden" name="_subject" value="BS 5839-1:2025 Checklist download - eburyfire.co.uk">
+          <input type="hidden" name="_replyto" value="email">
+          <input type="hidden" name="lead_source" value="checklist_download">
+          <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+          <button type="submit">Email me the checklist</button>
+          <div class="lm-note">PDF arrives in your inbox within 60 seconds. We won't pass your email to anyone, and we'll only follow up about fire alarm compliance. Never with sales pressure.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="calc-section" id="savings">
+  <div class="wrap">
+    <h2>Savings calculator</h2>
+    <h3>What could you save by switching?</h3>
+    <p class="calc-lede">National-chain pricing typically runs 30 to 50% above what we publish on our rate card. Tell us roughly what you're paying now and we'll show you the difference.</p>
+    <div class="calc-grid">
+      <div class="calc-inputs">
+        <label for="calc-tier">Building size / tier</label>
+        <select id="calc-tier">
+          <option value="600">Essential: up to 50 devices, single building</option>
+          <option value="1100" selected>Standard: 50&ndash;100 devices, mid-size</option>
+          <option value="1800">Plus: 100&ndash;200 devices, complex</option>
+        </select>
+        <label for="calc-buildings">Number of buildings</label>
+        <input type="number" id="calc-buildings" min="1" max="100" value="1">
+        <label for="calc-current">Current annual fee per building (&pound;, ex VAT)</label>
+        <input type="number" id="calc-current" min="0" step="50" placeholder="e.g. 1500" value="1500">
+      </div>
+      <div class="calc-result">
+        <div class="calc-label">Estimated annual saving</div>
+        <div class="calc-amount" id="calc-saving-amount">&pound;400</div>
+        <div class="calc-amount-suffix" id="calc-saving-suffix">vs. your current contractor &middot; per year</div>
+        <div class="calc-explainer" id="calc-explainer">Our price: &pound;1,100/yr. Their price: &pound;1,500/yr.</div>
+        <a class="calc-cta" href="#quote">Get a real quote &rarr;</a>
+        <div class="calc-disclaimer">Indicative only. Final quote depends on device count, panel type, and access. We'll come back the same day with a real number.</div>
+      </div>
+      <div class="calc-email-gate" id="calc-email-gate">
+        <p><strong>Want a written breakdown emailed to you?</strong> We'll send the full per-building comparison and a 30-min compliance check booking link.</p>
+        <form id="calc-email-form" action="https://formspree.io/f/mbdwrapv" method="POST" novalidate>
+          <label for="calc-email" class="sr-only">Email address</label>
+          <input type="email" id="calc-email" name="email" placeholder="name@example.com" required aria-label="Email address">
+          <input type="hidden" name="_subject" value="Savings calculator request - eburyfire.co.uk">
+          <input type="hidden" name="lead_source" value="savings_calculator">
+          <input type="hidden" id="calc-payload" name="calculator_payload" value="">
+          <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+          <button type="submit">Email me the breakdown</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="quote">
   <div class="wrap">
     <div class="form-card">
-      <h2>Be one of the Founding 50<span class="dot">.</span></h2>
-      <p>We're taking just 50 customers in our first launch quarter. Tell us about your buildings. We'll come back with launch dates and book a free compliance check the moment we're live.</p>
-      <ul class="perks">
-        <li>Lifetime price freeze on your annual rate. We never raise it on you, even when our published prices go up for new customers.</li>
-        <li>5% off the published rate card for the first 5 years</li>
-        <li>Your name or your firm's logo on our website if you'd like. Visible to every prospect after you.</li>
-      </ul>
-      <!-- Success and error message containers (managed by Formspree AJAX SDK) -->
-      <div data-fs-success class="form-state form-success" hidden>Thanks. You're on the Founding 50 list. We'll come back with launch dates and book your free compliance check the moment we're live.</div>
+      <h2>Get a quote<span class="dot">.</span></h2>
+      <p>Tell us about your building. We come back the same day with a price for your site and a date for a free 30-minute compliance check. No obligation, no aggressive follow-up.</p>
+
+      <div data-fs-success class="form-state form-success" hidden>Thanks. We'll come back the same day with a price for your site and a date for your free compliance check.</div>
       <div data-fs-error class="form-state form-error" hidden></div>
 
-      <!-- Form: action + method work as fallback if JS disabled. AJAX SDK takes over when JS available. -->
-      <form id="founding-50-form" action="https://formspree.io/f/mbdwrapv" method="POST" novalidate>
+      <form id="quote-form" action="https://formspree.io/f/mbdwrapv" method="POST" novalidate>
         <div class="form-row form-row-full">
-          <label for="founding-email">Email <span class="req">*</span></label>
-          <input type="email" id="founding-email" name="email" placeholder="your@email.com" required data-fs-field>
+          <label for="quote-email">Email <span class="req">*</span></label>
+          <input type="email" id="quote-email" name="email" placeholder="name@example.com" required data-fs-field>
           <span class="field-error" data-fs-error="email"></span>
         </div>
         <div class="form-row form-row-full">
-          <label for="founding-building">Building or property type</label>
-          <input type="text" id="founding-building" name="building_type" placeholder="Care home, hotel, residential block, etc." data-fs-field>
+          <label for="quote-building">Building or property type</label>
+          <input type="text" id="quote-building" name="building_type" placeholder="Care home, hotel, residential block, etc." data-fs-field>
         </div>
         <div class="form-row">
-          <label for="founding-postcode">Site postcode</label>
-          <input type="text" id="founding-postcode" name="postcode" placeholder="SW1A 1AA" data-fs-field>
+          <label for="quote-postcode">Site postcode</label>
+          <input type="text" id="quote-postcode" name="postcode" placeholder="SW1A 1AA" data-fs-field>
         </div>
         <div class="form-row">
-          <label for="founding-contractor">Current contractor <span class="opt">(optional)</span></label>
-          <input type="text" id="founding-contractor" name="current_contractor" placeholder="e.g. Chubb, Marlowe, JCI, current contractor" data-fs-field>
+          <label for="quote-contractor">Current contractor <span class="opt">(optional)</span></label>
+          <input type="text" id="quote-contractor" name="current_contractor" placeholder="e.g. Chubb, Marlowe, JCI, current contractor" data-fs-field>
         </div>
         <div class="form-row form-row-full">
-          <label for="founding-expiry">Contract expiry <span class="opt">(optional)</span></label>
-          <input type="text" id="founding-expiry" name="contract_expiry" placeholder="Approximate month" data-fs-field>
+          <label for="quote-expiry">Contract expiry <span class="opt">(optional)</span></label>
+          <input type="text" id="quote-expiry" name="contract_expiry" placeholder="Approximate month" data-fs-field>
         </div>
-        <input type="hidden" name="_subject" value="Founding 50 enquiry from eburyfire.co.uk">
+        <input type="hidden" name="_subject" value="Quote enquiry from eburyfire.co.uk">
         <input type="hidden" name="_replyto" value="email">
-        <!-- Honeypot for spam bots. Humans never fill this. -->
         <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
         <div class="form-row form-row-full form-row-actions">
-          <button type="submit" data-fs-submit-btn>Tell us about your buildings</button>
+          <button type="submit" data-fs-submit-btn>Get a quote</button>
         </div>
       </form>
-      <div class="small">We'll only email you about Ebury Fire Systems' launch and your Founding 50 onboarding. No third-party marketing. Unsubscribe at any point.</div>
+      <div class="small">We only email you about your enquiry and the booked compliance check. No third-party marketing. Unsubscribe at any point.</div>
+      <div class="booking-alt">
+        <h3>Or book a 15-min discovery call</h3>
+        <p>Prefer to talk it through? Pick a slot directly in our diary. No pre-call form, no follow-up sales sequence.</p>
+        <a class="calendly-btn" href="https://calendly.com/sammy-eburyfire/30min" target="_blank" rel="noopener">Book a discovery call &rarr;</a>
+      </div>
     </div>
 
     <dl class="contact">
@@ -680,22 +1624,113 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
     <div>
-      <em>Ebury Fire Systems Ltd · Registered in England and Wales, company no. [pending]<br>
-      Registered office: [registered office address] · VAT no. [pending registration]</em>
+      <em>Ebury Fire Systems is a trading name of Ebury Engineering Ltd &middot; Registered in England and Wales, company no. 16942750<br>
+      Registered office: 128 City Road, London EC1V 2NX &middot; VAT no. 512 9580 88</em>
     </div>
-    <div>© 2026 Ebury Fire Systems Ltd</div>
+    <div>&copy; 2026 Ebury Engineering Ltd</div>
   </div>
 </footer>
 
 <!-- Formspree AJAX SDK: progressively enhances the form with inline success/error states -->
 <script>
   window.formspree = window.formspree || function () { (window.formspree.q = window.formspree.q || []).push(arguments); };
-  formspree('initForm', { formElement: '#founding-50-form', formId: 'mbdwrapv' });
+  formspree('initForm', { formElement: '#quote-form', formId: 'mbdwrapv' });
 </script>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+
+<!-- Sticky bottom CTA bar -->
+<div class="sticky-cta" id="sticky-cta" role="region" aria-label="Quick actions">
+  <div class="sticky-text">Same engineer every visit. <strong>Published pricing from &pound;600/yr.</strong></div>
+  <div class="sticky-actions">
+    <a class="sticky-secondary" href="#checklist">Free checklist</a>
+    <a class="sticky-primary" href="#quote">Get a quote</a>
+    <button class="sticky-close" type="button" aria-label="Dismiss" onclick="document.getElementById('sticky-cta').classList.remove('is-visible'); document.body.classList.remove('has-sticky'); sessionStorage.setItem('stickyCTAClosed','1');">&times;</button>
+  </div>
+</div>
+
+<script>
+  // Reveal sticky CTA after the user has scrolled past the hero (~600px)
+  (function () {
+    var bar = document.getElementById('sticky-cta');
+    if (!bar) return;
+    if (sessionStorage.getItem('stickyCTAClosed') === '1') return;
+    var revealAt = 600;
+    var revealed = false;
+    function check() {
+      var y = window.scrollY || window.pageYOffset || 0;
+      if (!revealed && y > revealAt) {
+        bar.classList.add('is-visible');
+        document.body.classList.add('has-sticky');
+        revealed = true;
+      }
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    check();
+  })();
+
+  // Savings calculator - recompute on input
+  (function () {
+    var tier = document.getElementById('calc-tier');
+    var buildings = document.getElementById('calc-buildings');
+    var current = document.getElementById('calc-current');
+    var amountEl = document.getElementById('calc-saving-amount');
+    var suffixEl = document.getElementById('calc-saving-suffix');
+    var explainerEl = document.getElementById('calc-explainer');
+    var payloadEl = document.getElementById('calc-payload');
+    if (!tier || !buildings || !current || !amountEl) return;
+
+    function fmt(n) { return '\u00a3' + Math.max(0, Math.round(n)).toLocaleString('en-GB'); }
+
+    function recompute() {
+      var ourPerBuilding = parseFloat(tier.value) || 0;
+      var n = Math.max(1, parseInt(buildings.value, 10) || 1);
+      var theirPerBuilding = Math.max(0, parseFloat(current.value) || 0);
+
+      // Apply our portfolio discount: 5% off for 5+, 10% off for 10+
+      var discount = 0;
+      if (n >= 10) discount = 0.10;
+      else if (n >= 5) discount = 0.05;
+      var ourAnnual = ourPerBuilding * n * (1 - discount);
+      var theirAnnual = theirPerBuilding * n;
+      var saving = theirAnnual - ourAnnual;
+
+      amountEl.innerHTML = fmt(saving);
+      suffixEl.textContent = 'vs. your current contractor \u00b7 per year';
+
+      var explainerParts = [];
+      if (discount > 0) {
+        explainerParts.push('Includes ' + Math.round(discount * 100) + '% portfolio discount on ' + n + ' buildings.');
+      }
+      explainerParts.push('Our price: ' + fmt(ourAnnual) + '/yr. Their price: ' + fmt(theirAnnual) + '/yr.');
+      explainerEl.textContent = explainerParts.join(' ');
+
+      if (payloadEl) {
+        payloadEl.value = JSON.stringify({
+          tier: tier.options[tier.selectedIndex].text,
+          buildings: n,
+          current_per_building: theirPerBuilding,
+          ebury_per_building: ourPerBuilding,
+          portfolio_discount_pct: Math.round(discount * 100),
+          ebury_total_yr: Math.round(ourAnnual),
+          current_total_yr: Math.round(theirAnnual),
+          estimated_saving_yr: Math.round(saving)
+        });
+      }
+    }
+    ['input', 'change'].forEach(function (evt) {
+      tier.addEventListener(evt, recompute);
+      buildings.addEventListener(evt, recompute);
+      current.addEventListener(evt, recompute);
+    });
+    recompute();
+  })();
+</script>
 
 </body>
 </html>
