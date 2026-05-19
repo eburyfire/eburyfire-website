@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand colours */
+  --color-cream: #f5f1ec;
+  --color-ink: #1a1a1a;
+  --color-stone: #6f6a60;
+  --color-orange: #f26522;
+  --color-green: #639922;
+  --color-amber: #e89b2b;
+  --color-red: #c73e3e;
+  --color-surface: #ffffff;
+  --color-rule: rgba(26, 26, 26, 0.08);
+
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  --radius-card: 6px;
+  --radius-button: 4px;
+}
+
+@layer base {
+  html {
+    background: #f5f1ec;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    background: #f5f1ec;
+    color: #1a1a1a;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  /* Reveal stays visible by default. JS adds `.reveal-armed` once an
+     IntersectionObserver is wired up, which lets the element drop into
+     a faded/translated entry state, and `.in-view` fades it back in.
+     If JS never loads, the element renders normally. */
+  .reveal {
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.reveal-armed:not(.in-view) {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal.reveal-armed:not(.in-view),
+    .reveal.in-view {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
