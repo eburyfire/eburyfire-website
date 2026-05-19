@@ -107,7 +107,9 @@ const localBusinessJsonLd = {
   areaServed: ["England"],
   address: {
     "@type": "PostalAddress",
+    streetAddress: "128 City Road",
     addressLocality: "London",
+    postalCode: "EC1V 2NX",
     addressCountry: "GB",
   },
   email: site.contactEmail,

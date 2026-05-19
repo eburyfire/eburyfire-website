@@ -8,7 +8,7 @@ export const site = {
   portalSignInUrl: "https://portal.eburyfire.co.uk/sign-in",
   contactEmail: "hello@eburyfire.co.uk",
   noreplyEmail: "noreply@eburyfire.co.uk",
-  registeredOffice: "[TO ADD]",
+  registeredOffice: "128 City Road, London, EC1V 2NX",
   twitter: "",
   description:
     "Fire alarm, gas suppression, emergency lighting and aspirating detection across England. One contract, one accountable team. Maintenance from £600 per site per year.",
