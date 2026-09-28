@@ -94,5 +94,5 @@ export function enquirySubjectInternal(p: EnquiryPayload) {
 }
 
 export function enquirySubjectAck() {
-  return `Thanks — we&rsquo;ll be in touch within one working day`;
+  return `Thanks — we’ll be in touch within one working day`;
 }
