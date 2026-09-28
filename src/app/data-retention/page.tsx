@@ -47,10 +47,10 @@ export default function RetentionPage() {
             Last updated: 15 May 2026
           </p>
           <p className="text-[16px] text-ink leading-[1.7] mb-8 max-w-[720px]">
-            We don&rsquo;t keep personal data longer than we need to. The
+            We don’t keep personal data longer than we need to. The
             table below lists every record type the marketing site touches,
             the reason we hold it, and how long it stays. Records created
-            after you become a customer fall under the portal&rsquo;s own
+            after you become a customer fall under the portal’s own
             retention schedule.
           </p>
 
@@ -100,7 +100,7 @@ export default function RetentionPage() {
               >
                 {site.contactEmail}
               </a>{" "}
-              with &ldquo;Privacy: deletion request&rdquo; in the subject
+              with “Privacy: deletion request” in the subject
               line.
             </p>
 

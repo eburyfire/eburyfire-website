@@ -119,7 +119,7 @@ export default function ServicesPage() {
               Get a quote within one working day.
             </h2>
             <p className="text-[15px] text-stone">
-              Send us your site list. We&rsquo;ll reply within one working day.
+              Send us your site list. We’ll reply within one working day.
             </p>
           </div>
           <CtaLink href="/contact" variant="primary">

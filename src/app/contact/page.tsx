@@ -25,7 +25,7 @@ export default async function ContactPage({
       <PageHeader
         eyebrow="Contact"
         title="Get a quote within one working day."
-        intro="Or book a 15-minute call to talk through your requirements. We&rsquo;ll reply to every enquiry within one working day."
+        intro="Or book a 15-minute call to talk through your requirements. We’ll reply to every enquiry within one working day."
       />
 
       <section className="px-6 md:px-8 pb-20">
@@ -68,7 +68,7 @@ export default async function ContactPage({
                   Referral
                 </p>
                 <p className="text-[13px] text-ink">
-                  We&rsquo;ll attribute this enquiry to referral code{" "}
+                  We’ll attribute this enquiry to referral code{" "}
                   <code className="text-[12px] bg-ink/5 px-1.5 py-0.5 rounded">
                     {referralCode}
                   </code>

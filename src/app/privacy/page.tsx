@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             <p>
               Email{" "}
               <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>{" "}
-              for any privacy question. Marked &ldquo;Privacy&rdquo; gets you
+              for any privacy question. Marked “Privacy” gets you
               to the right person first time.
             </p>
 
@@ -104,13 +104,13 @@ export default function PrivacyPage() {
               about you, and to object to processing. To exercise any of
               these, email{" "}
               <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>{" "}
-              with &ldquo;Privacy: subject access&rdquo; in the subject line.
+              with “Privacy: subject access” in the subject line.
               We reply within one calendar month.
             </p>
             <p>
-              If you&rsquo;re not happy with how we&rsquo;ve handled your
+              If you’re not happy with how we’ve handled your
               data, you have the right to complain to the Information
-              Commissioner&rsquo;s Office at{" "}
+              Commissioner’s Office at{" "}
               <a href="https://ico.org.uk/make-a-complaint/">
                 ico.org.uk
               </a>

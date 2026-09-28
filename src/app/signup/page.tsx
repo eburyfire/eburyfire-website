@@ -7,7 +7,7 @@ import { readReferralCode } from "@/lib/referral";
 export const metadata: Metadata = {
   title: "Welcome",
   description:
-    "Welcome — let&rsquo;s get you set up. Tell us about your buildings and we&rsquo;ll be in touch within one working day.",
+    "Welcome — let’s get you set up. Tell us about your buildings and we’ll be in touch within one working day.",
 };
 
 export default async function SignupPage({
@@ -27,8 +27,8 @@ export default async function SignupPage({
     <>
       <PageHeader
         eyebrow="Welcome"
-        title="Let&rsquo;s get you set up."
-        intro="Tell us about your buildings and we&rsquo;ll be in touch within one working day."
+        title="Let’s get you set up."
+        intro="Tell us about your buildings and we’ll be in touch within one working day."
       />
       <section className="px-6 md:px-8 pb-20">
         <div className="mx-auto max-w-[1200px] grid gap-12 md:grid-cols-[1fr_320px]">

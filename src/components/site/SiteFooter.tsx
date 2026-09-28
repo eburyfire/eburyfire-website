@@ -74,7 +74,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-cream/15 text-[11px] text-cream/50 tracking-[0.02em]">
-          {site.name} is a trading name of {site.legalName} &middot; A member of the
+          {site.name} is a trading name of {site.legalName} · A member of the
           Ebury Holdings Group
         </div>
       </div>

@@ -15,7 +15,7 @@ export default function PricingPage() {
       <PageHeader
         eyebrow="Pricing"
         title="Plain. Published."
-        intro="Maintenance is per site, per year. Project work is bespoke — every install, commission and upgrade is quoted on the actual scope after we&rsquo;ve seen the building."
+        intro="Maintenance is per site, per year. Project work is bespoke — every install, commission and upgrade is quoted on the actual scope after we’ve seen the building."
       />
 
       <section className="px-6 md:px-8 pb-12">
@@ -42,7 +42,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-[1200px] grid gap-10 md:grid-cols-2">
           <div>
             <h2 className="text-[22px] md:text-[26px] font-medium tracking-[-0.02em] mb-4">
-              What&rsquo;s included in maintenance
+              What’s included in maintenance
             </h2>
             <p className="text-[16px] text-ink leading-[1.7]">
               Annual service to BS 5839-1:2025 and applicable standards for
@@ -54,7 +54,7 @@ export default function PricingPage() {
           </div>
           <div>
             <h2 className="text-[22px] md:text-[26px] font-medium tracking-[-0.02em] mb-4">
-              What&rsquo;s quoted separately
+              What’s quoted separately
             </h2>
             <p className="text-[16px] text-ink leading-[1.7]">
               New system design, installation, and commissioning. System

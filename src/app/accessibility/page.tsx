@@ -17,10 +17,10 @@ export default function AccessibilityPage() {
           <Prose>
             <p>
               We aim to meet WCAG 2.2 AA. If you find anything that
-              doesn&rsquo;t meet that standard or you have an accessibility
+              doesn’t meet that standard or you have an accessibility
               concern, email{" "}
               <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>{" "}
-              and we&rsquo;ll fix it.
+              and we’ll fix it.
             </p>
           </Prose>
         </div>

@@ -47,7 +47,7 @@ export function QuoteForm({
           kind: "success",
           message:
             body?.note ??
-            "Thanks — we&rsquo;ll be in touch within one working day.",
+            "Thanks — we’ll be in touch within one working day.",
         });
         form.reset();
         return;
@@ -72,7 +72,7 @@ export function QuoteForm({
     return (
       <div className="bg-surface border border-rule rounded-[6px] p-8">
         <p className="text-[18px] font-medium tracking-[-0.015em] mb-2">
-          Thanks &mdash; we&rsquo;ll be in touch within one working day.
+          Thanks — we’ll be in touch within one working day.
         </p>
         <p className="text-[14px] text-stone">{state.message}</p>
       </div>
@@ -117,7 +117,7 @@ export function QuoteForm({
 
       <Field label="Number of sites">
         <select name="numberOfSites" defaultValue="" className={inputClass}>
-          <option value="">&mdash; Select &mdash;</option>
+          <option value="">— Select —</option>
           {sitesOptions.map((s) => (
             <option key={s} value={s}>
               {s}

@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
         ok: true,
         delivered: false,
         note:
-          "Captured but not yet emailed — Resend not configured. We&rsquo;ll still get back to you within one working day.",
+          "Captured but not yet emailed — Resend not configured. We’ll still get back to you within one working day.",
       },
       { status: 202 },
     );
