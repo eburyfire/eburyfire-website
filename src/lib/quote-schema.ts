@@ -18,6 +18,11 @@ export const quoteSchema = z.object({
   urgency: z.enum(urgencyOptions),
   message: z.string().trim().max(4000).optional(),
   referralCode: z.string().trim().max(64).optional(),
+  // Ebury tools 4a: one id per form instance, so a resubmit after an email
+  // failure doesn't create a second CRM entry.
+  formId: z.string().trim().regex(/^[A-Za-z0-9_-]{16,80}$/).optional(),
+  // Honeypot: hidden from people; anything typed here is a bot.
+  website: z.string().max(500).optional(),
 });
 
 export type QuoteInput = z.infer<typeof quoteSchema>;

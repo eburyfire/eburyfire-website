@@ -76,13 +76,25 @@ export default function PrivacyPage() {
                 <strong>Vercel</strong> hosts this website.
               </li>
               <li>
+                <strong>Supabase</strong> stores your enquiry in our customer
+                system, and <strong>Vercel</strong> runs that system, both in
+                London.
+              </li>
+              <li>
+                <strong>Anthropic</strong> (Claude, an AI assistant) helps us
+                draft replies, which a person checks before they&rsquo;re
+                sent. Anthropic processes this in the US under its own terms
+                and privacy policy.
+              </li>
+              <li>
                 <strong>Plausible</strong> aggregates anonymous analytics.
               </li>
             </ul>
             <p>
-              If you go on to become a customer, your data is handed off to
-              the customer portal at <em>portal.eburyfire.co.uk</em>, which is
-              covered by its own, more detailed privacy notice.
+              We also keep your enquiry in our customer system at{" "}
+              <em>portal.eburyfire.co.uk</em> so we can follow it up. If you go
+              on to become a customer, the portal&rsquo;s own privacy notice
+              covers you from then on.
             </p>
             <p>
               We never sell your data, never use it for marketing without your
@@ -91,6 +103,10 @@ export default function PrivacyPage() {
             </p>
 
             <h2>How long we keep it</h2>
+            <p>
+              We keep enquiries in our customer system for up to 2 years after
+              we last hear from you, or longer if you become a customer.
+            </p>
             <p>
               See our{" "}
               <Link href="/data-retention">data retention schedule</Link> for

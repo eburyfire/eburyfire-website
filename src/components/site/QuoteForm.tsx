@@ -15,6 +15,10 @@ export function QuoteForm({
   referralCode?: string;
 }) {
   const [state, setState] = useState<FormState>({ kind: "idle" });
+  // One id per form instance: a resubmit after an error is the same enquiry.
+  const [formId] = useState(() =>
+    typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : undefined,
+  );
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,6 +34,8 @@ export function QuoteForm({
       urgency: String(fd.get("urgency") ?? ""),
       message: String(fd.get("message") ?? ""),
       referralCode: String(fd.get("referralCode") ?? "") || undefined,
+      formId,
+      website: String(fd.get("website") ?? "") || undefined,
     };
 
     setState({ kind: "submitting" });
@@ -83,6 +89,13 @@ export function QuoteForm({
 
   return (
     <form onSubmit={onSubmit} className="grid gap-5" noValidate>
+      {/* Honeypot: off-screen and skipped by keyboard and screen readers. */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+        <label>
+          Leave this empty
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+        </label>
+      </div>
       {referralCode ? (
         <input type="hidden" name="referralCode" value={referralCode} />
       ) : null}

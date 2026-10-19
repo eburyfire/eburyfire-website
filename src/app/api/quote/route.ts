@@ -8,6 +8,7 @@ import {
 } from "@/lib/email/templates";
 import { sendEmail } from "@/lib/email/send";
 import { site } from "@/lib/site";
+import { idempotencyKey, sendEnquiryToPortal } from "@/lib/portal-enquiry";
 
 export async function POST(req: NextRequest) {
   let json: unknown;
@@ -37,6 +38,15 @@ export async function POST(req: NextRequest) {
 
   const data = parsed.data;
 
+  // Honeypot filled: a bot. Look successful, send nothing, record nothing.
+  if (data.website && data.website.trim() !== "") {
+    return NextResponse.json({ ok: true, delivered: true });
+  }
+
+  // Also into the portal CRM (Ebury tools 4a). Never changes the response:
+  // the email to hello@ is still the primary path.
+  const crm = sendEnquiryToPortal(idempotencyKey(data.formId, data, new Date()), data);
+
   const [internalResult, ackResult] = await Promise.all([
     sendEmail({
       to: site.contactEmail,
@@ -51,6 +61,8 @@ export async function POST(req: NextRequest) {
       replyTo: site.contactEmail,
     }),
   ]);
+
+  await crm;
 
   if (!internalResult.ok && internalResult.reason === "no_api_key") {
     console.warn(
