@@ -8,7 +8,7 @@ import {
 } from "@/lib/email/templates";
 import { sendEmail } from "@/lib/email/send";
 import { site } from "@/lib/site";
-import { allowQuote, idempotencyKey, sendEnquiryToPortal } from "@/lib/portal-enquiry";
+import { allowQuote, idempotencyKey, isHoneypot, sendEnquiryToPortal } from "@/lib/portal-enquiry";
 
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || null;
@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
   const data = parsed.data;
 
   // Honeypot filled: a bot. Look successful, send nothing, record nothing.
-  if (data.website && data.website.trim() !== "") {
+  if (isHoneypot(data.website)) {
     return NextResponse.json({ ok: true, delivered: true });
   }
 

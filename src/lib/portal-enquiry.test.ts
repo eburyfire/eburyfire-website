@@ -1,7 +1,20 @@
 // Run: pnpm test (node --test with built-in type stripping; no extra dependency).
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { allowQuote, enquiryBody, idempotencyKey, sendEnquiryToPortal, signEnquiry } from "./portal-enquiry.ts";
+import { allowQuote, enquiryBody, idempotencyKey, isHoneypot, sendEnquiryToPortal, signEnquiry } from "./portal-enquiry.ts";
+
+test("text the database can't store is cleaned before it's sent", () => {
+  const body = JSON.parse(enquiryBody("k".repeat(20), { ...data, contactName: "Jo\u0000e\ud800", message: "line one\nline\ttwo\u0007" }));
+  assert.equal(body.enquiry.contact_name, "Joe\ufffd");
+  assert.equal(body.enquiry.message, "line one\nline\ttwo");
+});
+
+test("honeypot: anything typed in the hidden field is a bot", () => {
+  assert.equal(isHoneypot(undefined), false);
+  assert.equal(isHoneypot(""), false);
+  assert.equal(isHoneypot("   "), false);
+  assert.equal(isHoneypot("http://spam.example"), true);
+});
 
 const data = {
   companyName: "Acme Care", contactName: "Jane", email: "jane@acme.example",
