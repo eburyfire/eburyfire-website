@@ -1,12 +1,17 @@
 // Run: pnpm test (node --test with built-in type stripping; no extra dependency).
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { allowQuote, enquiryBody, idempotencyKey, isHoneypot, sendEnquiryToPortal, signEnquiry } from "./portal-enquiry.ts";
+import { allowQuote, crmLine, enquiryBody, idempotencyKey, isHoneypot, sendEnquiryToPortal, signEnquiry } from "./portal-enquiry.ts";
 
 test("text the database can't store is cleaned before it's sent", () => {
   const body = JSON.parse(enquiryBody("k".repeat(20), { ...data, contactName: "Jo\u0000e\ud800", message: "line one\nline\ttwo\u0007" }));
   assert.equal(body.enquiry.contact_name, "Joe\ufffd");
   assert.equal(body.enquiry.message, "line one\nline\ttwo");
+});
+
+test("the internal email always says whether the CRM has the enquiry", () => {
+  assert.match(crmLine("recorded"), /^Saved/);
+  for (const r of ["capped", "skipped", "failed"] as const) assert.match(crmLine(r), /^NOT in the CRM/);
 });
 
 test("honeypot: anything typed in the hidden field is a bot", () => {

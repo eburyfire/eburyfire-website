@@ -8,7 +8,7 @@ import {
 } from "@/lib/email/templates";
 import { sendEmail } from "@/lib/email/send";
 import { site } from "@/lib/site";
-import { allowQuote, idempotencyKey, isHoneypot, sendEnquiryToPortal } from "@/lib/portal-enquiry";
+import { allowQuote, crmLine, idempotencyKey, isHoneypot, sendEnquiryToPortal } from "@/lib/portal-enquiry";
 
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || null;
@@ -51,15 +51,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true, delivered: true });
   }
 
-  // Also into the portal CRM (Ebury tools 4a). Never changes the response:
-  // the email to hello@ is still the primary path.
-  const crm = sendEnquiryToPortal(idempotencyKey(data.formId, data, new Date()), data);
+  // Also into the portal CRM (Ebury tools 4a), first, so the internal email
+  // can say whether it got there. At most ~4 s; never throws.
+  const key = idempotencyKey(data.formId, data, new Date());
+  const crm = await sendEnquiryToPortal(key, data);
 
   const [internalResult, ackResult] = await Promise.all([
     sendEmail({
       to: site.contactEmail,
       subject: enquirySubjectInternal(data),
-      html: enquiryInternalTemplate(data),
+      html: enquiryInternalTemplate(data, crmLine(crm)),
       replyTo: data.email,
     }),
     sendEmail({
@@ -70,9 +71,15 @@ export async function POST(req: NextRequest) {
     }),
   ]);
 
-  await crm;
-
   if (!internalResult.ok && internalResult.reason === "no_api_key") {
+    // Only say it was captured if the CRM really has it.
+    if (crm !== "recorded" && crm !== "duplicate") {
+      console.error("[quote] enquiry neither emailed nor in the CRM", { key, crm });
+      return NextResponse.json(
+        { ok: false, error: "We couldn't send your enquiry just now. Please email hello@eburyfire.co.uk." },
+        { status: 502 },
+      );
+    }
     console.warn(
       "[quote] RESEND_API_KEY not configured. Enquiry from",
       data.email,

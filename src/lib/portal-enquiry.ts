@@ -85,6 +85,19 @@ export function enquiryBody(key: string, data: QuoteInput): string {
 
 export type HandOffResult = "recorded" | "duplicate" | "capped" | "skipped" | "failed";
 
+/** The line the internal (hello@) email carries, so a missing CRM copy is never silent. */
+export function crmLine(r: HandOffResult): string {
+  switch (r) {
+    case "recorded": return "Saved to the CRM (prospect, deal and a task on Today).";
+    case "duplicate": return "Already in the CRM from an earlier submit of this form.";
+    case "capped": return "NOT in the CRM: over the CRM's enquiry limit. Add it by hand.";
+    case "skipped": return "NOT in the CRM: the website's CRM hand-off isn't configured.";
+    default: return "NOT in the CRM: the hand-off failed (logged). Add it by hand.";
+  }
+}
+
+let warnedUnconfigured = false;
+
 export async function sendEnquiryToPortal(
   key: string,
   data: QuoteInput,
@@ -92,7 +105,13 @@ export async function sendEnquiryToPortal(
 ): Promise<HandOffResult> {
   const env = deps.env ?? process.env;
   const secret = env.WEBSITE_ENQUIRY_SECRET;
-  if (!secret || secret.length < 32) return "skipped";
+  if (!secret || secret.length < 32) {
+    if (!warnedUnconfigured) {
+      warnedUnconfigured = true;
+      console.error("[quote] CRM hand-off disabled: WEBSITE_ENQUIRY_SECRET is not set (or under 32 characters)");
+    }
+    return "skipped";
+  }
   const url = env.PORTAL_ENQUIRY_URL || DEFAULT_PORTAL_ENQUIRY_URL;
   const raw = enquiryBody(key, data);
   const t = Math.floor((deps.now ?? Date.now)() / 1000);
@@ -110,10 +129,10 @@ export async function sendEnquiryToPortal(
       if (body.result === "capped") console.warn("[quote] portal CRM is over its enquiry cap; email still sent");
       return body.result;
     }
-    console.error("[quote] portal CRM hand-off refused", { status: res.status });
+    console.error("[quote] portal CRM hand-off refused", { key, status: res.status });
     return "failed";
   } catch (err) {
-    console.error("[quote] portal CRM hand-off failed", { name: (err as Error)?.name ?? "unknown" });
+    console.error("[quote] portal CRM hand-off failed", { key, name: (err as Error)?.name ?? "unknown" });
     return "failed";
   }
 }

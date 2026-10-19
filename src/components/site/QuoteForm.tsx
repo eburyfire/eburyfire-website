@@ -48,7 +48,7 @@ export function QuoteForm({
       });
       const body = await res.json().catch(() => ({}));
 
-      if (res.ok || res.status === 202) {
+      if ((res.ok || res.status === 202) && body?.ok === true) {
         setState({
           kind: "success",
           message:
