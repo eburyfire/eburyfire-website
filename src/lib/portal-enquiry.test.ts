@@ -1,7 +1,7 @@
 // Run: pnpm test (node --test with built-in type stripping; no extra dependency).
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { enquiryBody, idempotencyKey, sendEnquiryToPortal, signEnquiry } from "./portal-enquiry.ts";
+import { allowQuote, enquiryBody, idempotencyKey, sendEnquiryToPortal, signEnquiry } from "./portal-enquiry.ts";
 
 const data = {
   companyName: "Acme Care", contactName: "Jane", email: "jane@acme.example",
@@ -15,13 +15,23 @@ test("signature matches the portal's fixed vector", () => {
   assert.equal(signEnquiry("k", 1700000000, "x"), "t=1700000000,v1=35e785f0777ca89fd2c639cc4f8c9806af1aa1f62afa88698a7e1f158f227cfc");
 });
 
-test("idempotency key: the form id when valid, else a stable 10-minute hash", () => {
+test("idempotency key: the form id when valid, else the same London day", () => {
   const now = new Date("2026-10-19T10:00:00Z");
   assert.equal(idempotencyKey("f".repeat(20), data, now), "f".repeat(20));
   const a = idempotencyKey(undefined, data, now);
-  assert.equal(a, idempotencyKey("bad id!", data, new Date("2026-10-19T10:05:00Z")));
-  assert.notEqual(a, idempotencyKey(undefined, data, new Date("2026-10-19T10:15:00Z")));
+  // A resubmit minutes later, across a 10-minute boundary, is the same enquiry.
+  assert.equal(a, idempotencyKey("bad id!", data, new Date("2026-10-19T10:10:03Z")));
+  assert.notEqual(a, idempotencyKey(undefined, data, new Date("2026-10-20T10:00:00Z")));
   assert.match(a, /^h[0-9a-f]{40}$/);
+});
+
+test("per-IP brake: 5 in 10 minutes, then refused, then allowed again", () => {
+  const t0 = 1_800_000_000_000;
+  for (let i = 0; i < 5; i++) assert.equal(allowQuote("203.0.113.9", t0 + i), true);
+  assert.equal(allowQuote("203.0.113.9", t0 + 10), false);
+  assert.equal(allowQuote("203.0.113.10", t0 + 10), true);
+  assert.equal(allowQuote("203.0.113.9", t0 + 600_001), true);
+  assert.equal(allowQuote(null, t0), true);
 });
 
 test("body carries only the form fields, empty ones left out", () => {

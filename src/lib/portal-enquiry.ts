@@ -17,11 +17,34 @@ export function signEnquiry(secret: string, t: number, rawBody: string): string 
   return `t=${t},v1=${mac}`;
 }
 
-/** The form's own id (stable across resubmits of one form), or a 10-minute fallback. */
+/**
+ * The form's own id (stable across resubmits of one form), or, for a browser
+ * without crypto.randomUUID, the same address + message on the same London
+ * day counts as one enquiry.
+ */
 export function idempotencyKey(formId: string | undefined, data: QuoteInput, now: Date): string {
   if (formId && /^[A-Za-z0-9_-]{16,80}$/.test(formId)) return formId;
-  const bucket = Math.floor(now.getTime() / 600_000);
-  return `h${createHash("sha256").update(`${data.email}\n${data.message ?? ""}\n${bucket}`).digest("hex").slice(0, 40)}`;
+  const day = now.toLocaleDateString("en-CA", { timeZone: "Europe/London" });
+  return `h${createHash("sha256").update(`${data.email}\n${data.message ?? ""}\n${day}`).digest("hex").slice(0, 40)}`;
+}
+
+/**
+ * Best-effort brake on one address hammering the form: at most 5 posts per
+ * IP per 10 minutes per server instance. The portal's own caps (per address
+ * and overall) are the real limit; this only keeps one script from using them up.
+ */
+const hits = new Map<string, number[]>();
+export function allowQuote(ip: string | null, nowMs: number): boolean {
+  if (!ip) return true;
+  const recent = (hits.get(ip) ?? []).filter((t) => nowMs - t < 600_000);
+  if (recent.length >= 5) {
+    hits.set(ip, recent);
+    return false;
+  }
+  recent.push(nowMs);
+  hits.set(ip, recent);
+  if (hits.size > 5_000) hits.clear();
+  return true;
 }
 
 export function enquiryBody(key: string, data: QuoteInput): string {

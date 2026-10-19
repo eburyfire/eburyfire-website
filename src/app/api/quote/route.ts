@@ -8,9 +8,17 @@ import {
 } from "@/lib/email/templates";
 import { sendEmail } from "@/lib/email/send";
 import { site } from "@/lib/site";
-import { idempotencyKey, sendEnquiryToPortal } from "@/lib/portal-enquiry";
+import { allowQuote, idempotencyKey, sendEnquiryToPortal } from "@/lib/portal-enquiry";
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || null;
+  if (!allowQuote(ip, Date.now())) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please wait a few minutes, or email hello@eburyfire.co.uk." },
+      { status: 429 },
+    );
+  }
+
   let json: unknown;
   try {
     json = await req.json();
