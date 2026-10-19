@@ -42,8 +42,9 @@ function esc(s: string | undefined | null): string {
     .replace(/"/g, "&quot;");
 }
 
-export function enquiryInternalTemplate(p: EnquiryPayload) {
+export function enquiryInternalTemplate(p: EnquiryPayload, crm?: string) {
   const rows: Array<[string, string | undefined]> = [
+    ["Portal CRM", crm],
     ["Company", p.companyName],
     ["Contact", p.contactName],
     ["Email", p.email],
