@@ -19,7 +19,7 @@ export default function PrivacyPage() {
       <section className="px-6 md:px-8 pb-20">
         <div className="mx-auto max-w-[1200px]">
           <p className="text-[13px] text-stone mb-8">
-            Last updated: 18 October 2026
+            Last updated: 19 October 2026
           </p>
           <Prose>
             <h2>Who we are</h2>
@@ -166,7 +166,11 @@ export default function PrivacyPage() {
               made the call and by our administrators. The companies that run
               our systems for us also process your details: Supabase hosts our
               database and Vercel runs the portal where we keep these records,
-              both in London. We don&rsquo;t sell your details.
+              both in London. We also use Claude, an AI assistant from Anthropic,
+              for admin such as looking up records, reviewing call notes and drafting
+              emails, which a person checks before they&rsquo;re sent. Anthropic processes
+              data in the United States under its own terms and privacy policy. We
+              don&rsquo;t sell your details.
             </p>
             <p>
               <strong>Your rights.</strong> You can ask for a copy of the
