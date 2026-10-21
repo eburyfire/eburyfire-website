@@ -11,7 +11,7 @@ export const site = {
   registeredOffice: "128 City Road, London, EC1V 2NX",
   twitter: "",
   description:
-    "Fire alarm, gas suppression, emergency lighting and aspirating detection across England. One contract, one accountable team. Maintenance from £600 per site per year.",
+    "Fire alarm, gas suppression, emergency lighting and aspirating detection across England. One contract, one accountable team. Maintenance fixed in writing after a short survey.",
 } as const;
 
 export const nav = [
