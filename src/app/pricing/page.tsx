@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Maintenance from £600 per site per year. Project work by quote. Discovery calls 15 minutes, no obligation.",
+    "Maintenance priced per site, per year, fixed in writing after a short survey. Project work by quote. Discovery calls 15 minutes, no obligation.",
 };
 
 export default function PricingPage() {
@@ -14,7 +14,7 @@ export default function PricingPage() {
     <>
       <PageHeader
         eyebrow="Pricing"
-        title="Plain. Published."
+        title="Plain. Fixed in writing."
         intro="Maintenance is per site, per year. Project work is bespoke — every install, commission and upgrade is quoted on the actual scope after we’ve seen the building."
       />
 
@@ -23,10 +23,10 @@ export default function PricingPage() {
           <div>
             <p className="text-[14px] text-stone mb-2">Maintenance</p>
             <p className="text-[40px] md:text-[48px] font-medium tracking-[-0.025em] leading-none">
-              from £600
-              <span className="text-stone text-[16px] font-normal ml-2">
-                / site / year
-              </span>
+              per site, per year
+            </p>
+            <p className="text-[14px] text-stone mt-3">
+              Fixed in writing after a short survey.
             </p>
           </div>
           <div>

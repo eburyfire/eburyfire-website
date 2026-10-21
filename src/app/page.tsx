@@ -135,8 +135,8 @@ export default function Home() {
               </h1>
               <p className="text-[17px] md:text-[20px] leading-[1.55] text-stone max-w-[620px] mb-10">
                 One contractor for design, installation, commissioning and
-                maintenance. Same engineer every visit. Maintenance from £600
-                per site per year.
+                maintenance. Same engineer every visit. Maintenance is priced per
+                site, per year, and fixed in writing after a short survey.
               </p>
               <div className="flex flex-wrap gap-3">
                 <CtaLink href="/contact" variant="primary">
