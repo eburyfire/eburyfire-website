@@ -4,3 +4,11 @@ allowBuilds:
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+# Security floors for transitive dependencies (22 Oct 2026, pnpm audit).
+# Same-major patch releases only; drop each once the parent ships it.
+overrides:
+  "js-yaml@^3": ^3.15.2
+  "@babel/core@^7": ^7.29.1
+  browserslist: ^4.28.7
+  baseline-browser-mapping: ^2.11.0
+  source-map-js: ^1.2.2
