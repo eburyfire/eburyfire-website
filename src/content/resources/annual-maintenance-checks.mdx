@@ -49,6 +49,7 @@ Each type of detector is tested with a method suited to it:
 - **CO detectors** with calibrated test gas
 - **Multi-sensor detectors** through each sensing element separately
 - **Beam detectors** by interrupting the beam path under controlled conditions
+- **Aspirating detectors** at each port, with response time measured against the commissioning baseline
 
 Each device's pass or fail should be logged against its serial number and address. A device that fails goes on the remedials list with its location and proposed replacement type.
 
@@ -56,12 +57,13 @@ Each device's pass or fail should be logged against its serial number and addres
 
 Manual call points are tested with a test key, not a hammer. The engineer verifies that the panel sees the activation and resets correctly afterwards.
 
-## Sounders and beacons
+## Sounders, beacons and voice alarm
 
 The evacuation signal is tested. Sound pressure level is measured at representative points, and the engineer checks:
 
 - That all sounders activate
 - That beacons fire in synchronisation
+- That voice alarm messages play correctly and intelligibly
 - That cause-and-effect rules trigger the right zones
 
 Where there are dead zones or inaudible areas, those go to remedials.

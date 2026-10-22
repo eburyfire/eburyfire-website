@@ -5,7 +5,7 @@ import { Prose } from "@/components/ui/Prose";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Ebury Fire Systems offers maintenance of fire detection and alarm systems and gas suppression systems under one contract, across London and the South East.",
+    "Ebury Fire Systems designs, installs, commissions and maintains fire and life safety systems across London and the South East, under one contract.",
 };
 
 export default function AboutPage() {
@@ -13,8 +13,8 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="Alarm and suppression, one contract."
-        intro="Ebury Fire Systems offers maintenance of fire detection and alarm systems and gas suppression systems, under one contract, across London and the South East."
+        title="One accountable contractor."
+        intro="Ebury Fire Systems designs, installs, commissions and maintains fire and life safety systems across London and the South East, under one contract."
       />
 
       <section className="px-6 md:px-8 pb-20">
@@ -22,16 +22,17 @@ export default function AboutPage() {
           <Prose>
             <h2>Mission</h2>
             <p>
-              A building with both a fire alarm and a gas suppression system
-              can end up with separate contractors and separate paperwork. We
-              bring both under one contract and one customer portal.
+              A building can end up with a separate contractor for each fire
+              safety system, each with its own paperwork. We bring them under one contract and one customer
+              portal, from design through ongoing maintenance.
             </p>
 
             <h2>What we cover</h2>
             <p>
-              Fire detection and alarm systems (BS 5839-1:2025) and gas
-              suppression systems (BS EN 15004). We do maintenance only, not
-              installation or design.
+              Design, installation, commissioning and maintenance across fire
+              detection and alarm (BS 5839-1:2025), gas suppression (BS EN
+              15004), emergency lighting (BS 5266), aspirating smoke detection,
+              watermist (BS 8489) and PAVA voice alarm (BS 5839-8).
             </p>
             <p>
               Your customer portal gives you access to your compliance

@@ -50,8 +50,8 @@ export default async function BlogIndex() {
           Blog
         </h1>
         <p className="text-lg text-stone-600 max-w-2xl">
-          Practical notes on fire safety standards and how fire alarm and gas
-          suppression compliance works in practice.
+          Practical notes on fire safety standards and how fire and life
+          safety compliance works in practice.
         </p>
       </header>
 

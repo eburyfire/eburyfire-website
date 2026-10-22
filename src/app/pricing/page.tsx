@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Maintenance priced per site, per year, fixed in writing after a short survey. Call-outs charged separately. Discovery calls 15 minutes, no obligation.",
+    "Maintenance priced per site, per year, fixed in writing after a short survey. Call-outs charged separately. Project work by quote. Discovery calls 15 minutes, no obligation.",
 };
 
 export default function PricingPage() {
@@ -15,7 +15,7 @@ export default function PricingPage() {
       <PageHeader
         eyebrow="Pricing"
         title="Plain. Fixed in writing."
-        intro="Maintenance is per site, per year, fixed in writing after we’ve seen the building. Call-outs are charged separately."
+        intro="Maintenance is per site, per year, fixed in writing after we’ve seen the building. Project work is quoted on the actual scope: every installation, commissioning and upgrade."
       />
 
       <section className="px-6 md:px-8 pb-12">
@@ -30,9 +30,9 @@ export default function PricingPage() {
             </p>
           </div>
           <div>
-            <p className="text-[14px] text-stone mb-2">Call-outs</p>
+            <p className="text-[14px] text-stone mb-2">Project work</p>
             <p className="text-[40px] md:text-[48px] font-medium tracking-[-0.025em] leading-none">
-              charged separately
+              by quote
             </p>
           </div>
         </div>
@@ -46,8 +46,8 @@ export default function PricingPage() {
             </h2>
             <p className="text-[16px] text-ink leading-[1.7]">
               Fire detection and alarm servicing to BS 5839-1:2025,
-              approximately every six months, and gas suppression servicing to
-              BS EN 15004. Visit reports and certificates are filed in your
+              approximately every six months, gas suppression servicing to BS
+              EN 15004, and other systems to their own standards. Visit reports and certificates are filed in your
               customer portal, with your log book entries and asset register.
               One contract across every site.
             </p>
@@ -57,8 +57,9 @@ export default function PricingPage() {
               What’s quoted separately
             </h2>
             <p className="text-[16px] text-ink leading-[1.7]">
-              Call-outs, charged separately. Work outside the agreed
-              maintenance scope is quoted separately.
+              New system design, installation and commissioning. System
+              upgrades and modifications. Fire risk assessments. Call-outs,
+              charged separately. Work outside the agreed maintenance scope.
             </p>
           </div>
         </div>

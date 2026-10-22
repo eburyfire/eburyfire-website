@@ -5,7 +5,7 @@ import { CtaLink } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Maintenance of fire detection and alarm systems to BS 5839-1 and gas suppression systems to BS EN 15004, under one contract, across London and the South East.",
+    "Design, installation, commissioning and maintenance across fire detection and alarm, gas suppression, emergency lighting, aspirating detection, watermist, voice alarm and BS 7273 interface work, in London and the South East.",
 };
 
 type Service = {
@@ -21,15 +21,55 @@ const services: Service[] = [
     name: "Fire detection and alarm",
     std: "BS 5839-1:2025",
     body: [
-      "Maintenance of existing fire detection and alarm systems to BS 5839-1:2025, including takeovers from your current contractor. Servicing is approximately every six months.",
+      "Addressable and conventional systems. New installations, takeovers from previous contractors, and ongoing maintenance to BS 5839-1:2025, with servicing approximately every six months.",
     ],
   },
   {
     id: "gas-suppression",
     name: "Gas suppression",
-    std: "BS EN 15004",
+    std: "BS EN 15004 · EC 304/2008",
     body: [
-      "Maintenance of gas suppression systems protecting server and comms rooms, archives and switch rooms, to BS EN 15004.",
+      "Total flood and local application systems. FM-200, Novec 1230, Inergen (IG-541), Argonite, CO2, IG-55. To BS EN 15004 and EC 304/2008.",
+    ],
+  },
+  {
+    id: "emergency-lighting",
+    name: "Emergency lighting",
+    std: "BS 5266",
+    body: [
+      "Self-contained and central battery systems, installed and maintained to BS 5266.",
+    ],
+  },
+  {
+    id: "aspirating",
+    name: "Aspirating smoke detection",
+    std: "VESDA",
+    body: [
+      "VESDA aspirating detection for data centres, archives, fine wine vaults, broadcast studios and other valuable rooms that are hard to protect.",
+    ],
+  },
+  {
+    id: "watermist",
+    name: "Watermist and pre-action",
+    std: "BS 8489",
+    body: [
+      "Heritage buildings, high-value rooms, sensitive equipment areas. Installation and maintenance to BS 8489.",
+    ],
+  },
+  {
+    id: "voice-alarm",
+    name: "Voice alarm (PAVA)",
+    std: "BS 5839-8",
+    body: [
+      "Public address and voice alarm systems integrated with fire detection where required. Installation and maintenance to BS 5839-8.",
+    ],
+  },
+  {
+    id: "bs-7273",
+    name: "BS 7273 interface work",
+    std: "BS 7273",
+    body: [
+      "Release mechanism and door retainer interface for compartmentation and means of escape.",
     ],
   },
 ];
@@ -39,8 +79,8 @@ export default function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Services"
-        title="Alarm and suppression, under one contract."
-        intro="Maintenance of fire detection and alarm systems and gas suppression systems across London and the South East, with one contract and one customer portal. We do maintenance only, not installation or design."
+        title="One contractor, end to end."
+        intro="Design, installation, commissioning and maintenance across the full fire and life safety stack, in London and the South East. One contract, one customer portal."
       />
 
       <section className="px-6 md:px-8 pb-16">

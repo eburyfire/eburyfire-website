@@ -8,13 +8,37 @@ const services = [
     href: "/services#fire-alarm",
     name: "Fire detection and alarm",
     std: "BS 5839-1:2025",
-    desc: "Maintenance of existing fire detection and alarm systems, including takeovers from your current contractor.",
+    desc: "Addressable and conventional systems. Take-over maintenance of existing installations or new design and install.",
   },
   {
     href: "/services#gas-suppression",
     name: "Gas suppression",
-    std: "BS EN 15004",
-    desc: "Maintenance of gas suppression systems protecting server and comms rooms, archives and switch rooms.",
+    std: "BS EN 15004 · EC 304/2008",
+    desc: "FM-200, Novec 1230, Inergen, Argonite, CO2, IG-55. Server rooms, data centres, archives, switch rooms.",
+  },
+  {
+    href: "/services#emergency-lighting",
+    name: "Emergency lighting",
+    std: "BS 5266",
+    desc: "Self-contained and central battery systems. Routine inspection, annual discharge testing, system upgrades.",
+  },
+  {
+    href: "/services#aspirating",
+    name: "Aspirating smoke detection",
+    std: "VESDA",
+    desc: "Data centres, archives, fine wine vaults, broadcast studios. Sensitive environments where early warning matters most.",
+  },
+  {
+    href: "/services#watermist",
+    name: "Watermist and pre-action",
+    std: "BS 8489",
+    desc: "Heritage buildings, high-value rooms, sensitive equipment areas where water damage from accidental discharge is unacceptable.",
+  },
+  {
+    href: "/services#voice-alarm",
+    name: "Voice alarm (PAVA)",
+    std: "BS 5839-8",
+    desc: "Integrated with fire detection where evacuation requires spoken instruction beyond bells and sounders.",
   },
 ];
 
@@ -32,7 +56,7 @@ const journey = [
   {
     n: "3",
     name: "Contract signed",
-    desc: "Digital signature. Maintenance is sold as an annual price.",
+    desc: "Digital signature. Direct Debit set up for annual maintenance, or one-off payment link for project work.",
   },
   {
     n: "4",
@@ -55,8 +79,8 @@ const faqs = [
     a: "Servicing to BS 5839-1:2025, approximately every six months, covering inspection and testing of the panel, devices and batteries. A written certificate and the log book entry are filed in your customer portal.",
   },
   {
-    q: "Do you install or design systems?",
-    a: "No. We do maintenance only: fire detection and alarm systems to BS 5839-1 and gas suppression systems to BS EN 15004, under one contract.",
+    q: "Do you handle the entire system or just maintenance?",
+    a: "Both. We cover design, installation, commissioning and maintenance across fire and life safety, with one contract per customer.",
   },
   {
     q: "How do call-outs work?",
@@ -102,13 +126,13 @@ export default function Home() {
             <div className="w-[3px] bg-orange shrink-0 self-stretch min-h-[260px] hidden md:block" />
             <div className="flex-1 max-w-[820px]">
               <h1 className="text-[40px] md:text-[64px] leading-[1.04] font-medium tracking-[-0.03em] m-0 mb-7">
-                Fire alarm and gas suppression maintenance, under one contract.
+                London fire and life safety. Done properly.
               </h1>
               <p className="text-[17px] md:text-[20px] leading-[1.55] text-stone max-w-[620px] mb-10">
-                Fire detection and alarm maintenance to BS 5839-1 and gas
-                suppression maintenance to BS EN 15004, across London and the
-                South East. Maintenance is priced per site, per year, and fixed
-                in writing after a short survey.
+                One contractor for design, installation, commissioning and
+                maintenance, across London and the South East. Maintenance is
+                priced per site, per year, and fixed in writing after a short
+                survey.
               </p>
               <div className="flex flex-wrap gap-3">
                 <CtaLink href="/contact" variant="primary">
@@ -123,22 +147,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* On-time target strip. A target, not a result: swap in the real
+          rate from the portal's visit records once a quarter of visits exists. */}
+      <section className="bg-surface border-y border-rule px-6 md:px-8 py-11">
+        <div className="mx-auto max-w-[1200px] flex flex-col md:flex-row md:items-center gap-5 md:gap-10">
+          <div>
+            <p aria-hidden="true" className="text-[12px] uppercase tracking-[0.1em] text-stone mb-2">
+              Our target
+            </p>
+            <p aria-hidden="true" className="text-[52px] md:text-[60px] leading-none font-medium tracking-[-0.025em]">
+              95<span className="text-orange text-[28px] md:text-[32px] ml-0.5 font-medium">%</span>
+            </p>
+          </div>
+          <div className="hidden md:block w-px self-stretch bg-ink/10" />
+          <p className="text-[15px] text-stone leading-[1.55] max-w-[560px]">
+            <span className="sr-only">Our target is 95% </span>
+            of visits on time. From our first quarter of visits, we&rsquo;ll
+            publish how we&rsquo;re doing against it.
+          </p>
+        </div>
+      </section>
+
       {/* Services */}
-      <section className="px-6 md:px-8 py-20 md:py-24 border-t border-rule">
+      <section className="px-6 md:px-8 py-20 md:py-24">
         <div className="mx-auto max-w-[1200px]">
           <Reveal>
             <p className="text-[12px] uppercase tracking-[0.12em] text-stone mb-5">
               What we do
             </p>
             <h2 className="text-[28px] md:text-[42px] font-medium tracking-[-0.025em] leading-[1.1] mb-4">
-              Alarm and gas suppression maintenance, under one contract.
+              One contractor across fire and life safety.
             </h2>
             <p className="text-[16px] md:text-[17px] text-stone leading-[1.5] max-w-[580px] mb-11">
-              Maintenance only: we don&rsquo;t install or design systems. One
-              contract and one customer portal across both.
+              Design, installation, commissioning and maintenance. One contract
+              and one customer portal across every service.
             </p>
           </Reveal>
-          <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <Reveal key={s.href}>
                 <Link
@@ -164,8 +209,8 @@ export default function Home() {
       <section className="bg-surface border-y border-rule px-6 md:px-8 py-14">
         <div className="mx-auto max-w-[1200px] text-center">
           <p className="text-[20px] md:text-[24px] tracking-[-0.015em] leading-[1.4] text-ink">
-            One contract for alarm and suppression. Every visit recorded in
-            your customer portal.
+            One contract across your fire and life safety systems. Every visit
+            recorded in your customer portal.
           </p>
         </div>
       </section>
