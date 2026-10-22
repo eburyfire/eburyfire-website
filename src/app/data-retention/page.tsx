@@ -22,6 +22,11 @@ const rows: Row[] = [
     kept: "7 years",
   },
   {
+    record: "Partner and supplier firm contacts",
+    trigger: "Last two-way contact, or end of our work together",
+    kept: "24 months if we don't work together; 7 years after the work ends if we do",
+  },
+  {
     record: "Referral code cookies (ebury_referral_code)",
     trigger: "Set in browser",
     kept: "30 days, in-browser only",
@@ -44,7 +49,7 @@ export default function RetentionPage() {
       <section className="px-6 md:px-8 pb-20">
         <div className="mx-auto max-w-[1200px]">
           <p className="text-[13px] text-stone mb-8">
-            Last updated: 15 May 2026
+            Last updated: 22 October 2026
           </p>
           <p className="text-[16px] text-ink leading-[1.7] mb-8 max-w-[720px]">
             We don’t keep personal data longer than we need to. The

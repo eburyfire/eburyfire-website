@@ -11,7 +11,7 @@ export const site = {
   registeredOffice: "128 City Road, London, EC1V 2NX",
   twitter: "",
   description:
-    "Fire alarm, gas suppression, emergency lighting and aspirating detection across England. One contract, one accountable team. Maintenance fixed in writing after a short survey.",
+    "Maintenance of fire detection and alarm systems (BS 5839-1) and gas suppression systems (BS EN 15004) across London and the South East, under one contract. Maintenance fixed in writing after a short survey.",
 } as const;
 
 export const nav = [

@@ -1,7 +1,7 @@
 {
   "name": "Ebury Fire Systems",
   "short_name": "Ebury Fire",
-  "description": "Fire alarm specialists for people who don't like fire alarm specialists.",
+  "description": "Maintenance of fire alarm and gas suppression systems across London and the South East.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

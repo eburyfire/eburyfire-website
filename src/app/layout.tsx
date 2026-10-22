@@ -16,7 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · London fire and life safety`,
+    default: `${site.name} · Fire alarm and gas suppression maintenance`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     locale: "en_GB",
     siteName: site.name,
     url: site.url,
-    title: `${site.name} · London fire and life safety`,
+    title: `${site.name} · Fire alarm and gas suppression maintenance`,
     description: site.description,
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} · London fire and life safety`,
+    title: `${site.name} · Fire alarm and gas suppression maintenance`,
     description: site.description,
     images: ["/og-image.png"],
   },

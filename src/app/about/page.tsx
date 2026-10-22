@@ -5,7 +5,7 @@ import { Prose } from "@/components/ui/Prose";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Ebury Fire Systems designs, installs, commissions, and maintains fire and life safety systems. One accountable contractor, with the technical depth to back it up.",
+    "Ebury Fire Systems offers maintenance of fire detection and alarm systems and gas suppression systems under one contract, across London and the South East.",
 };
 
 export default function AboutPage() {
@@ -13,8 +13,8 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="One accountable contractor."
-        intro="Ebury Fire Systems designs, installs, commissions, and maintains fire and life safety systems. One accountable contractor, with the technical depth to back it up."
+        title="Alarm and suppression, one contract."
+        intro="Ebury Fire Systems offers maintenance of fire detection and alarm systems and gas suppression systems, under one contract, across London and the South East."
       />
 
       <section className="px-6 md:px-8 pb-20">
@@ -22,34 +22,27 @@ export default function AboutPage() {
           <Prose>
             <h2>Mission</h2>
             <p>
-              Most fire compliance work in the UK is fragmented across
-              specialists, meaning five suppliers for one building. We
-              consolidate the supply chain. One contract, one team, one
-              customer portal, covering the full lifecycle from initial design
-              through ongoing maintenance.
+              A building with both a fire alarm and a gas suppression system
+              can end up with separate contractors and separate paperwork. We
+              bring both under one contract and one customer portal.
             </p>
 
-            <h2>Capability</h2>
+            <h2>What we cover</h2>
             <p>
-              We deliver design, installation, commissioning, and maintenance
-              across fire detection and alarm (BS 5839-1:2025), gas suppression
-              (BS EN 15004), emergency lighting (BS 5266), aspirating smoke
-              detection, watermist (BS 8489), and PAVA voice alarm (BS 5839-8).
+              Fire detection and alarm systems (BS 5839-1:2025) and gas
+              suppression systems (BS EN 15004). We do maintenance only, not
+              installation or design.
             </p>
             <p>
-              Our customer portal gives every customer visibility of their
-              compliance position in real time: site evidence packs, asset
-              registers, log books, certificates, and visit history, available
-              on demand.
+              Your customer portal gives you access to your compliance
+              records whenever you need them: certificates, visit history, log
+              books, asset registers and downloadable evidence packs.
             </p>
             <p>
-              Same engineer every visit. One supplier across every site,
-              whether you have one or fifty.
+              One contract can cover every site you manage, with visits
+              scheduled around each site.
             </p>
-            <p>
-              Headquartered in London, serving England, with priority response
-              for buildings inside the M25.
-            </p>
+            <p>We cover London and the South East.</p>
           </Prose>
         </div>
       </section>
