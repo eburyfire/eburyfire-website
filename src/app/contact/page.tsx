@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get a quote within one working day, or book a 15-minute call to talk through your requirements.",
+    "Request a quote and we reply within one working day, or book a 15-minute call to talk through your requirements.",
 };
 
 export default async function ContactPage({
@@ -24,8 +24,8 @@ export default async function ContactPage({
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Get a quote within one working day."
-        intro="Or book a 15-minute call to talk through your requirements. We’ll reply to every enquiry within one working day."
+        title="Tell us about your sites."
+        intro="Request a quote, or book a 15-minute call to talk through your requirements. We’ll reply to every enquiry within one working day."
       />
 
       <section className="px-6 md:px-8 pb-20">

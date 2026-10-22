@@ -13,13 +13,13 @@ export default function PrivacyPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Privacy notice — draft pending legal review"
+        eyebrow="Privacy notice"
         title="How we handle your data."
       />
       <section className="px-6 md:px-8 pb-20">
         <div className="mx-auto max-w-[1200px]">
           <p className="text-[13px] text-stone mb-8">
-            Last updated: 19 October 2026
+            Last updated: 22 October 2026
           </p>
           <Prose>
             <h2>Who we are</h2>
@@ -196,6 +196,64 @@ export default function PrivacyPage() {
               If you&rsquo;re unhappy with how we&rsquo;ve handled your
               information, you can complain to the Information
               Commissioner&rsquo;s Office (<a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a>).
+            </p>
+
+            <h2 id="partner-firms">Firms we may work with</h2>
+            <p>
+              This section explains how we use the details of firms we may
+              work with as suppliers or partners, and of the people we deal
+              with at them.
+            </p>
+            <p>
+              <strong>What we hold.</strong> The firm&rsquo;s name, address,
+              website and general email address, and the name, job title, work
+              email and work phone number of the person we deal with. We also
+              keep notes of our emails, calls and meetings about working
+              together.
+            </p>
+            <p>
+              <strong>Where it comes from.</strong> The BAFE public register,
+              the firm&rsquo;s own website and Companies House (which we use to
+              check what type of company a firm is), or from you directly.
+            </p>
+            <p>
+              <strong>Why we use it, and our lawful basis.</strong> To discuss
+              and manage working together, such as agreeing rates, checking
+              insurance and certificates, and arranging work. We rely on
+              legitimate interests: our interest in finding and working with
+              firms that can carry out maintenance work. We use business
+              details only, contact you about your firm&rsquo;s work, and make
+              it easy to stop. We have weighed this against your rights and
+              think it is fair.
+            </p>
+            <p>
+              <strong>Stopping contact and your right to object.</strong> You
+              can object to us holding or using your details at any time.
+              Reply &ldquo;stop&rdquo; to any email, or email{" "}
+              <a href="mailto:hello@eburyfire.co.uk">hello@eburyfire.co.uk</a>,
+              and we&rsquo;ll stop contacting you straight away. We keep a
+              minimal record of your email address so we don&rsquo;t contact
+              you again. If we are already working together, we may need to
+              keep some details to manage that work, and we&rsquo;ll tell you
+              which.
+            </p>
+            <p>
+              <strong>How long we keep it.</strong> If we don&rsquo;t end up
+              working together, we delete your details 24 months after we last
+              had two-way contact with you (you reply, speak to us on a call
+              or meet us), as for the business contacts above. If we do work
+              together, we keep our emails and the records of that work for 7
+              years after it ends, the same period our{" "}
+              <Link href="/data-retention">data retention schedule</Link>{" "}
+              gives for email correspondence.
+            </p>
+            <p>
+              <strong>Who can see it.</strong> Only people at Ebury who deal
+              with partner firms. The suppliers named above, and our email
+              provider, also process these details for us, including Anthropic
+              in the United States under its own terms. We don&rsquo;t sell
+              your details. Your other rights, and how to complain, are
+              under &ldquo;Your rights&rdquo; below.
             </p>
 
             <h2>Your rights</h2>

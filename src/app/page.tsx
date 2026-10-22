@@ -45,54 +45,50 @@ const services = [
 const journey = [
   {
     n: "1",
-    when: "Day 0",
     name: "Discovery call",
     desc: "15 minutes by video. We learn your sites, current contractor, renewal timing, what's working and what isn't.",
   },
   {
     n: "2",
-    when: "Day 2–5",
     name: "Written proposal",
-    desc: "Proposal sent within five working days. Scope, pricing, contract length, response times. No hidden fees.",
+    desc: "A written proposal setting out scope, price and contract length for your sites.",
   },
   {
     n: "3",
-    when: "Day 5–10",
     name: "Contract signed",
     desc: "Digital signature. Direct Debit set up for annual maintenance, or one-off payment link for project work.",
   },
   {
     n: "4",
-    when: "Within 14 days",
     name: "First visit",
-    desc: "Same engineer every time. Plain-English certificate emailed within 24 hours. Customer portal access.",
+    desc: "Your visit is scheduled around your site. The certificate and visit record are filed in your customer portal.",
   },
 ];
 
 const faqs = [
   {
     q: "Where do you operate?",
-    a: "England. London-based, working with customers across the country, with priority response inside the M25.",
+    a: "London and the South East.",
   },
   {
-    q: "How quickly can you take over from our current contractor?",
-    a: "Two to four weeks from signed contract to first service visit. Most fire alarm contracts allow termination on 30–90 days notice — we'll review your terms with you, no charge.",
+    q: "How do we switch from our current contractor?",
+    a: "Check the notice period in your current contract first. Once you have given notice or your term has ended, we agree a start date with you and schedule the first service visit.",
   },
   {
-    q: "What's included in a quarterly maintenance visit?",
-    a: "Full BS 5839-1:2025 service: panel inspection, device testing, battery checks, fault diagnosis, cause-and-effect verification on a sample of devices, written certificate, log book entry, asset register update.",
+    q: "What's included in a service visit?",
+    a: "Servicing to BS 5839-1:2025, approximately every six months, covering inspection and testing of the panel, devices and batteries. A written certificate and the log book entry are filed in your customer portal.",
   },
   {
     q: "Do you handle the entire system or just maintenance?",
-    a: "Both. We design, install, commission and maintain across the full life-safety stack. One contractor, one accountable team, one contract per customer.",
+    a: "Both. We cover design, installation, commissioning and maintenance across fire and life safety, with one contract per customer.",
   },
   {
-    q: "What's your callout response time?",
-    a: "Standard callout within five working days. Out-of-hours and 4-hour emergency response available — pricing on quote. Full SLA documented in your maintenance contract.",
+    q: "How do call-outs work?",
+    a: "Call-outs are arranged under your maintenance contract, which sets out how to report a fault and what to expect before you sign. Call-outs are charged separately.",
   },
   {
     q: "Can we see compliance evidence whenever we need it?",
-    a: "Yes. Every customer gets portal access. Certificates, visit history, asset register, log book entries and a one-click compliance evidence pack PDF for insurance renewal, FRA assessor or audit.",
+    a: "Yes. Your customer portal holds certificates, visit history, log book entries and the asset register. You can also download an evidence pack for the period you choose, for an insurance renewal, a Fire Risk Assessor or an audit.",
   },
 ];
 
@@ -104,7 +100,7 @@ const localBusinessJsonLd = {
   description: site.description,
   url: site.url,
   vatID: "GB512958088",
-  areaServed: ["England"],
+  areaServed: ["London", "South East England"],
   address: {
     "@type": "PostalAddress",
     streetAddress: "128 City Road",
@@ -113,7 +109,6 @@ const localBusinessJsonLd = {
     addressCountry: "GB",
   },
   email: site.contactEmail,
-  openingHours: "Mo-Fr 08:00-18:00",
 };
 
 export default function Home() {
@@ -135,8 +130,9 @@ export default function Home() {
               </h1>
               <p className="text-[17px] md:text-[20px] leading-[1.55] text-stone max-w-[620px] mb-10">
                 One contractor for design, installation, commissioning and
-                maintenance. Same engineer every visit. Maintenance is priced per
-                site, per year, and fixed in writing after a short survey.
+                maintenance, across London and the South East. Maintenance is
+                priced per site, per year, and fixed in writing after a short
+                survey.
               </p>
               <div className="flex flex-wrap gap-3">
                 <CtaLink href="/contact" variant="primary">
@@ -151,21 +147,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* On-time visit metric strip */}
+      {/* On-time target strip. A target, not a result: swap in the real
+          rate from the portal's visit records once a quarter of visits exists. */}
       <section className="bg-surface border-y border-rule px-6 md:px-8 py-11">
         <div className="mx-auto max-w-[1200px] flex flex-col md:flex-row md:items-center gap-5 md:gap-10">
           <div>
-            <p className="text-[12px] uppercase tracking-[0.1em] text-stone mb-2">
-              Our standard
+            <p aria-hidden="true" className="text-[12px] uppercase tracking-[0.1em] text-stone mb-2">
+              Our target
             </p>
-            <p className="text-[52px] md:text-[60px] leading-none font-medium tracking-[-0.025em]">
+            <p aria-hidden="true" className="text-[52px] md:text-[60px] leading-none font-medium tracking-[-0.025em]">
               95<span className="text-orange text-[28px] md:text-[32px] ml-0.5 font-medium">%</span>
             </p>
           </div>
           <div className="hidden md:block w-px self-stretch bg-ink/10" />
           <p className="text-[15px] text-stone leading-[1.55] max-w-[560px]">
-            on-time visits is the standard we hold ourselves to.{" "}
-            Updated quarterly from our service rota.
+            <span className="sr-only">Our target is 95% </span>
+            of visits on time. From our first quarter of visits, we&rsquo;ll
+            publish how we&rsquo;re doing against it.
           </p>
         </div>
       </section>
@@ -181,8 +179,8 @@ export default function Home() {
               One contractor across fire and life safety.
             </h2>
             <p className="text-[16px] md:text-[17px] text-stone leading-[1.5] max-w-[580px] mb-11">
-              Design, installation, commissioning and maintenance. Single point
-              of accountability across every service line.
+              Design, installation, commissioning and maintenance. One contract
+              and one customer portal across every service.
             </p>
           </Reveal>
           <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -211,8 +209,8 @@ export default function Home() {
       <section className="bg-surface border-y border-rule px-6 md:px-8 py-14">
         <div className="mx-auto max-w-[1200px] text-center">
           <p className="text-[20px] md:text-[24px] tracking-[-0.015em] leading-[1.4] text-ink">
-            Same engineer every visit. One contract, one team, one customer
-            portal.
+            One contract across your fire and life safety systems. Every visit
+            recorded in your customer portal.
           </p>
         </div>
       </section>
@@ -228,8 +226,8 @@ export default function Home() {
               From first call to first visit.
             </h2>
             <p className="text-[16px] md:text-[17px] text-stone leading-[1.5] max-w-[580px] mb-10">
-              A typical onboarding takes two to four weeks. No surprises along
-              the way.
+              Four steps from your first conversation to your first service
+              visit.
             </p>
           </Reveal>
           <div className="grid gap-7 grid-cols-2 lg:grid-cols-4">
@@ -239,9 +237,6 @@ export default function Home() {
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-orange/40 text-orange text-[15px] font-medium mb-5">
                     {step.n}
                   </div>
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-orange font-medium mb-1.5">
-                    {step.when}
-                  </p>
                   <h3 className="text-[17px] font-medium tracking-[-0.01em] mb-2">
                     {step.name}
                   </h3>
@@ -284,10 +279,11 @@ export default function Home() {
         <div className="mx-auto max-w-[1200px] flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
             <h2 className="text-[28px] md:text-[36px] font-medium tracking-[-0.025em] leading-[1.1] mb-2">
-              Get a quote within one working day.
+              Tell us about your sites.
             </h2>
             <p className="text-[15px] text-stone">
-              Or book a 15-minute call to talk through your buildings.
+              We reply to every enquiry within one working day, or you can book
+              a 15-minute call to talk through your buildings.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">

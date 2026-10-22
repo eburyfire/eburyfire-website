@@ -5,7 +5,7 @@ import { CtaLink } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Design, installation, commissioning, and maintenance across fire detection and alarm, gas suppression, emergency lighting, aspirating detection, watermist, voice alarm and BS 7273 interface work.",
+    "Design, installation, commissioning and maintenance across fire detection and alarm, gas suppression, emergency lighting, aspirating detection, watermist, voice alarm and BS 7273 interface work, in London and the South East.",
 };
 
 type Service = {
@@ -21,7 +21,7 @@ const services: Service[] = [
     name: "Fire detection and alarm",
     std: "BS 5839-1:2025",
     body: [
-      "Addressable and conventional systems. New installations, takeovers from previous contractors, and ongoing maintenance to BS 5839-1:2025.",
+      "Addressable and conventional systems. New installations, takeovers from previous contractors, and ongoing maintenance to BS 5839-1:2025, with servicing approximately every six months.",
     ],
   },
   {
@@ -37,7 +37,7 @@ const services: Service[] = [
     name: "Emergency lighting",
     std: "BS 5266",
     body: [
-      "Self-contained and central battery systems. Design, installation, and maintenance to BS 5266.",
+      "Self-contained and central battery systems, installed and maintained to BS 5266.",
     ],
   },
   {
@@ -45,7 +45,7 @@ const services: Service[] = [
     name: "Aspirating smoke detection",
     std: "VESDA",
     body: [
-      "VESDA aspirating detection for data centres, archives, fine wine vaults, broadcast studios, and other high-value or hard-to-protect environments.",
+      "VESDA aspirating detection for data centres, archives, fine wine vaults, broadcast studios and other valuable rooms that are hard to protect.",
     ],
   },
   {
@@ -80,7 +80,7 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="Services"
         title="One contractor, end to end."
-        intro="We deliver design, installation, commissioning, and maintenance across the full fire and life safety stack. One contract, one accountable team."
+        intro="Design, installation, commissioning and maintenance across the full fire and life safety stack, in London and the South East. One contract, one customer portal."
       />
 
       <section className="px-6 md:px-8 pb-16">
@@ -116,10 +116,10 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-[1200px] flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
             <h2 className="text-[26px] md:text-[32px] font-medium tracking-[-0.02em] leading-[1.1] mb-2">
-              Get a quote within one working day.
+              Send us your site list.
             </h2>
             <p className="text-[15px] text-stone">
-              Send us your site list. We’ll reply within one working day.
+              We reply to every enquiry within one working day.
             </p>
           </div>
           <CtaLink href="/contact" variant="primary">
