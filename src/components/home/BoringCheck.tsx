@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CtaLink } from "@/components/ui/Button";
 import { isComplete, questions, verdict, type Answers } from "@/lib/boring-check";
 
@@ -11,10 +11,21 @@ export function BoringCheck() {
   const done = isComplete(answers);
   const result = done ? verdict(answers) : null;
   const answered = answers.filter((a) => a !== null).length;
+  const formRef = useRef<HTMLFormElement>(null);
+
+  function startAgain() {
+    setAnswers(questions.map(() => null));
+    // The button that had focus is about to unmount: move focus to the
+    // first question so keyboard users don't land on <body>.
+    requestAnimationFrame(() => {
+      formRef.current?.querySelector<HTMLInputElement>("input")?.focus();
+    });
+  }
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_380px] items-start">
       <form
+        ref={formRef}
         className="grid gap-6"
         onSubmit={(e) => e.preventDefault()}
         aria-describedby="boring-check-note"
@@ -34,7 +45,7 @@ export function BoringCheck() {
                   <label
                     key={id}
                     htmlFor={id}
-                    className="cursor-pointer rounded-full border border-ink/20 px-4 py-2 text-[14px] bg-surface hover:border-ink has-[:checked]:bg-ink has-[:checked]:text-cream has-[:checked]:border-ink has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-orange"
+                    className="cursor-pointer rounded-full border border-ink/20 px-4 py-2 text-[14px] bg-surface hover:border-ink has-[:checked]:bg-ink has-[:checked]:text-cream has-[:checked]:border-ink has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--focus)]"
                   >
                     <input
                       id={id}
@@ -78,7 +89,7 @@ export function BoringCheck() {
               </CtaLink>
               <button
                 type="button"
-                onClick={() => setAnswers(questions.map(() => null))}
+                onClick={startAgain}
                 className="text-[14px] underline underline-offset-4"
               >
                 Start again

@@ -6,6 +6,7 @@ import { readReferralCode } from "@/lib/referral";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description:
     "Request a quote and we reply within one working day, or book a 15-minute call to talk through your requirements.",

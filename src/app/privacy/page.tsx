@@ -5,6 +5,7 @@ import { Prose } from "@/components/ui/Prose";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy notice",
   description: "How Ebury Fire Systems handles your personal data.",
 };

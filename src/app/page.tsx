@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -140,6 +141,10 @@ const localBusinessJsonLd = {
   email: site.contactEmail,
 };
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <>
@@ -179,7 +184,7 @@ export default function Home() {
         </div>
         <span
           aria-hidden="true"
-          className="stamp hidden lg:block absolute right-10 top-28 text-[15px] text-ember-ink"
+          className="stamp hidden xl:block absolute right-10 top-28 text-[15px] text-ember-ink"
         >
           Keep it boring
         </span>
@@ -207,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* The other outcome: one true consequence, then the fix. */}
-      <section className="bg-ink text-cream px-6 md:px-8 py-20 md:py-24">
+      <section className="on-dark bg-ink text-cream px-6 md:px-8 py-20 md:py-24">
         <div className="mx-auto max-w-[1200px]">
           <Reveal>
             <p className="label-mono text-orange mb-5">The other outcome</p>
@@ -276,7 +281,7 @@ export default function Home() {
               <Reveal key={s.href}>
                 <Link
                   href={s.href}
-                  className="group block bg-surface rounded-[6px] p-7 h-full border border-transparent hover:border-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                  className="group block bg-surface rounded-[6px] p-7 h-full border border-transparent hover:border-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
                 >
                   <p className="label-mono text-stone mb-4">{s.std}</p>
                   <h3 className="display text-[24px] mb-3 group-hover:text-ember-ink transition-colors">
@@ -295,11 +300,11 @@ export default function Home() {
       {/* Ask the same of the building */}
       <section className="bg-orange text-ink px-6 md:px-8 py-20 md:py-24">
         <div className="mx-auto max-w-[1200px]">
-          <p className="label-mono mb-5">Ask the same of the building</p>
+          <h2 className="label-mono mb-5">Ask the same of the building</h2>
           <div className="grid gap-x-10 gap-y-12 md:grid-cols-2">
             {askTheSame.map((a) => (
               <Reveal key={a.who}>
-                <p className="label-mono opacity-70 mb-3">{a.who}</p>
+                <p className="label-mono mb-3">{a.who}</p>
                 <p className="display text-[28px] md:text-[36px]">
                   {a.line} {a.ask}
                 </p>

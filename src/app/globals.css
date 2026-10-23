@@ -26,6 +26,19 @@
 }
 
 @layer base {
+  :root {
+    --focus: #1a1a1a;
+  }
+  .on-dark {
+    --focus: #f5f1ec;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
   html {
     background: #f5f1ec;
     scroll-behavior: smooth;

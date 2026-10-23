@@ -4,6 +4,7 @@ import { Prose } from "@/components/ui/Prose";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/accessibility" },
   title: "Accessibility",
   description: "Our commitment to WCAG 2.2 AA on eburyfire.co.uk.",
 };

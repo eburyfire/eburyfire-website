@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/data-retention" },
   title: "Data retention",
   description: "How long Ebury Fire Systems keeps each kind of record.",
 };

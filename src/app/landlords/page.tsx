@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/landlords" },
   title: "Landlords and managing agents",
   description:
     "Fire alarm and fire safety maintenance for landlords who own shop parades and mixed-use buildings, and the agents who manage them, across London and the South East.",
@@ -45,7 +46,7 @@ export default function LandlordsPage() {
       />
 
       {/* Whose job is it */}
-      <section className="bg-ink text-cream px-6 md:px-8 py-20 md:py-24">
+      <section className="on-dark bg-ink text-cream px-6 md:px-8 py-20 md:py-24">
         <div className="mx-auto max-w-[1200px] grid gap-10 md:grid-cols-[1.2fr_1fr] items-start">
           <Reveal>
             <p className="label-mono text-orange mb-5">Whose job is the fire alarm?</p>

@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { CtaLink } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services" },
   title: "Services",
   description:
     "Design, installation, commissioning and maintenance across fire detection and alarm, gas suppression, emergency lighting, aspirating detection, watermist, voice alarm and BS 7273 interface work, in London and the South East.",

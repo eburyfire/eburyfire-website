@@ -48,7 +48,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     siteName: site.name,
-    url: site.url,
     title: `${site.name} · London fire and life safety`,
     description: site.description,
   },
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: `${site.name} · London fire and life safety`,
     description: site.description,
   },
-  alternates: { canonical: site.url },
 };
 
 export default function RootLayout({

@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Prose } from "@/components/ui/Prose";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description:
     "Ebury Fire Systems designs, installs, commissions and maintains fire and life safety systems across London and the South East, under one contract.",
@@ -57,8 +58,8 @@ export default function AboutPage() {
           </Prose>
 
           <aside className="grid gap-6 content-start">
-            <div className="bg-ink text-cream rounded-[6px] p-7 grid gap-4">
-              <span className="stamp text-orange text-[13px] justify-self-start">
+            <div className="on-dark bg-ink text-cream rounded-[6px] p-7 grid gap-4">
+              <span aria-hidden="true" className="stamp text-orange text-[13px] justify-self-start">
                 Keep it boring
               </span>
               <p className="display text-[26px]">

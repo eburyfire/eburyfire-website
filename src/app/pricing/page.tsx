@@ -4,6 +4,7 @@ import { CtaLink } from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pricing" },
   title: "Pricing",
   description:
     "Maintenance priced per site, per year, fixed in writing after a short survey. Call-outs charged separately. Project work by quote. Discovery calls 15 minutes, no obligation.",

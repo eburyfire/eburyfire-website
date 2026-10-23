@@ -78,8 +78,20 @@ export function score(answers: Answers): number {
   );
 }
 
+/** How many answers landed on the worst option (2 points). */
+function serious(answers: Answers): number {
+  return answers.filter(
+    (a, i) => questions[i].options[a as number].points === 2,
+  ).length;
+}
+
 export function verdict(answers: Answers): Verdict {
   const total = score(answers);
+  // Two serious answers (say, no service for over a year and a fault light
+  // that's been on a while) are never "a little" exciting.
+  if (total >= 5 || serious(answers) >= 2) {
+    return exciting;
+  }
   if (total <= 1) {
     return {
       level: "boring",
@@ -94,9 +106,11 @@ export function verdict(answers: Answers): Verdict {
       body: "Nothing that can't be put right. We can take over your servicing and keep every certificate and visit record in one customer portal.",
     };
   }
-  return {
-    level: "exciting",
-    title: "Let's make it boring.",
-    body: "Your fire alarm deserves a quieter life than this. Book a 15-minute call and we'll talk through your building.",
-  };
+  return exciting;
 }
+
+const exciting: Verdict = {
+  level: "exciting",
+  title: "Let's make it boring.",
+  body: "Your fire alarm deserves a quieter life than this. Book a 15-minute call and we'll talk through your building.",
+};

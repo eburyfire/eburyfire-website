@@ -5,7 +5,7 @@ const linkClass = "hover:text-orange transition-colors";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink text-cream mt-auto">
+    <footer className="on-dark bg-ink text-cream mt-auto">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8 pt-16 md:pt-20 pb-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-12 md:pb-16 border-b border-cream/15">
           <p className="display-xl text-[64px] md:text-[112px]">

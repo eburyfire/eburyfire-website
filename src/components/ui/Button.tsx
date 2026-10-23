@@ -8,7 +8,7 @@ type ButtonProps = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 px-[22px] py-[14px] text-[15px] font-medium rounded-[4px] border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange";
+  "inline-flex items-center justify-center gap-2 px-[22px] py-[14px] text-[15px] font-medium rounded-[4px] border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]";
 
 const styles: Record<Variant, string> = {
   primary:

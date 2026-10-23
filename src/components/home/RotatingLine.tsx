@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 export type Line = { lead: string; punch: string };
 
 // Rotates a short line every few seconds. Starts on the first line (so the
-// server render is complete), honours reduced motion, and has a pause
-// button because auto-updating text needs one (WCAG 2.2.2).
+// server render is complete), stays still for reduced-motion users, and
+// has a pause button because auto-updating text needs one (WCAG 2.2.2).
 export function RotatingLine({
   lines,
   intervalMs = 3200,
@@ -15,36 +15,41 @@ export function RotatingLine({
   intervalMs?: number;
 }) {
   const [i, setI] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [fading, setFading] = useState(false);
   const [paused, setPaused] = useState(false);
-  const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
+    if (paused || lines.length < 2) return;
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
-  useEffect(() => {
-    if (paused || reduced || lines.length < 2) return;
+    let tick: ReturnType<typeof setInterval> | undefined;
     let swap: ReturnType<typeof setTimeout> | undefined;
-    const tick = setInterval(() => {
-      setVisible(false);
-      swap = setTimeout(() => {
-        setI((n) => (n + 1) % lines.length);
-        setVisible(true);
-      }, 300);
-    }, intervalMs);
-    return () => {
-      clearInterval(tick);
+    const stop = () => {
+      if (tick) clearInterval(tick);
       if (swap) clearTimeout(swap);
+      tick = swap = undefined;
     };
-  }, [paused, reduced, lines.length, intervalMs]);
+    const start = () => {
+      stop();
+      if (mq.matches) return;
+      tick = setInterval(() => {
+        setFading(true);
+        swap = setTimeout(() => {
+          setI((n) => (n + 1) % lines.length);
+          setFading(false);
+        }, 300);
+      }, intervalMs);
+    };
+    start();
+    mq.addEventListener("change", start);
+    return () => {
+      mq.removeEventListener("change", start);
+      stop();
+    };
+  }, [paused, lines.length, intervalMs]);
 
   const line = lines[i];
-  const canRotate = !reduced && lines.length > 1;
+  // A pause or a reduced-motion switch mid-fade must never leave it blank.
+  const hidden = fading && !paused;
 
   return (
     <div className="flex items-stretch gap-2 max-w-[680px]">
@@ -53,22 +58,29 @@ export function RotatingLine({
         aria-live="off"
       >
         <span
-          className={`transition-opacity duration-300 motion-reduce:transition-none ${visible ? "opacity-100" : "opacity-0"}`}
+          className={`transition-opacity duration-300 motion-reduce:transition-none motion-reduce:opacity-100 ${hidden ? "opacity-0" : "opacity-100"}`}
         >
           {line.lead} <span className="text-orange">{line.punch}</span>
         </span>
       </p>
-      {canRotate ? (
+      {lines.length > 1 ? (
         <button
           type="button"
-          onClick={() => setPaused((p) => !p)}
+          onClick={() => {
+            setPaused((p) => !p);
+            setFading(false);
+          }}
           aria-pressed={paused}
-          aria-label={paused ? "Play the rotating line" : "Pause the rotating line"}
-          className="shrink-0 w-12 rounded-[6px] border border-ink/20 text-ink hover:bg-ink hover:text-cream transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+          aria-label="Pause the rotating line"
+          className="motion-reduce:hidden shrink-0 w-12 grid place-items-center rounded-[6px] border border-ink/20 text-ink hover:bg-ink hover:text-cream transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
         >
-          <span aria-hidden="true" className="label-mono">
-            {paused ? "▶" : "❙❙"}
-          </span>
+          <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+            {paused ? (
+              <path d="M4 2.5v11l9-5.5z" />
+            ) : (
+              <path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" />
+            )}
+          </svg>
         </button>
       ) : null}
     </div>

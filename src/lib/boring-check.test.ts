@@ -48,3 +48,9 @@ test("the boundaries sit at 1 and 4 points", () => {
   assert.equal(verdict([1, 1, 0, 1, 1]).level, "lively"); // 4
   assert.equal(verdict([1, 1, 0, 1, 2]).level, "exciting"); // 5
 });
+
+test("two serious answers are exciting even under 5 points", () => {
+  // Over a year since a service (2) and a fault light for a while (2).
+  assert.equal(score([2, 0, 1, 0, 0]), 4);
+  assert.equal(verdict([2, 0, 1, 0, 0]).level, "exciting");
+});
