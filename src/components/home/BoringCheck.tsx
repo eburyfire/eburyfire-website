@@ -1,114 +1,60 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { CtaLink } from "@/components/ui/Button";
-import { isComplete, questions, verdict, type Answers } from "@/lib/boring-check";
+import { useState } from "react";
+import Link from "next/link";
+import { emptyAnswers, isComplete, questions, verdict, type Answers } from "@/lib/boring-check";
+
+const btn = "pop rounded-full px-[22px] py-2.5 text-[15px] font-extrabold";
 
 export function BoringCheck() {
-  const [answers, setAnswers] = useState<Answers>(() =>
-    questions.map(() => null),
-  );
+  const [answers, setAnswers] = useState<Answers>(emptyAnswers);
   const done = isComplete(answers);
-  const result = done ? verdict(answers) : null;
-  const answered = answers.filter((a) => a !== null).length;
-  const formRef = useRef<HTMLFormElement>(null);
 
-  function startAgain() {
-    setAnswers(questions.map(() => null));
-    // The button that had focus is about to unmount: move focus to the
-    // first question so keyboard users don't land on <body>.
-    requestAnimationFrame(() => {
-      formRef.current?.querySelector<HTMLInputElement>("input")?.focus();
-    });
+  function set(i: number, value: boolean) {
+    setAnswers((prev) => prev.map((a, j) => (j === i ? value : a)));
   }
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_380px] items-start">
-      <form
-        ref={formRef}
-        className="grid gap-6"
-        onSubmit={(e) => e.preventDefault()}
-        aria-describedby="boring-check-note"
-      >
-        {questions.map((q, qi) => (
-          <fieldset key={q.id} className="grid gap-3">
-            <legend className="text-[17px] font-medium mb-3">
-              <span className="label-mono text-ember-ink mr-3">
-                {String(qi + 1).padStart(2, "0")}
-              </span>
-              {q.text}
-            </legend>
-            <div className="flex flex-wrap gap-2">
-              {q.options.map((o, oi) => {
-                const id = `check-${q.id}-${oi}`;
-                return (
-                  <label
-                    key={id}
-                    htmlFor={id}
-                    className="cursor-pointer rounded-full border border-ink/20 px-4 py-2 text-[14px] bg-surface hover:border-ink has-[:checked]:bg-ink has-[:checked]:text-cream has-[:checked]:border-ink has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--focus)]"
-                  >
-                    <input
-                      id={id}
-                      type="radio"
-                      name={q.id}
-                      value={oi}
-                      checked={answers[qi] === oi}
-                      onChange={() =>
-                        setAnswers((prev) =>
-                          prev.map((a, i) => (i === qi ? oi : a)),
-                        )
-                      }
-                      className="sr-only"
-                    />
-                    {o.label}
-                  </label>
-                );
-              })}
-            </div>
-          </fieldset>
-        ))}
-        <p id="boring-check-note" className="text-[13px] text-stone">
-          A quick check, not a fire risk assessment. Nothing you choose here
-          is stored or sent.
-        </p>
-      </form>
-
-      {/* Only the result is announced, not every tap. */}
+    <div className="flex flex-col gap-[22px]">
+      {questions.map((q, i) => (
+        <div
+          key={q}
+          role="group"
+          aria-labelledby={`check-q-${i}`}
+          className="flex flex-wrap items-center justify-between gap-3 rounded-[20px] bg-white px-6 py-5"
+        >
+          <p id={`check-q-${i}`} className="m-0 flex-[1_1_300px] text-[18px] font-bold">
+            {q}
+          </p>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              aria-pressed={answers[i] === true}
+              onClick={() => set(i, true)}
+              className={`${btn} ${answers[i] === true ? "bg-yes text-white" : "bg-sand text-text"}`}
+            >
+              Yes
+            </button>
+            <button
+              type="button"
+              aria-pressed={answers[i] === false}
+              onClick={() => set(i, false)}
+              className={`${btn} ${answers[i] === false ? "bg-no text-white" : "bg-sand text-text"}`}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      ))}
+      {/* Always mounted; filled only once all five are answered, not on every tap. */}
       <p className="sr-only" aria-live="polite">
-        {result ? `${result.title} ${result.body}` : ""}
+        {done ? verdict(answers) : ""}
       </p>
-      <div className="lg:sticky lg:top-24 rounded-[8px] bg-orange text-ink p-7 grid gap-4">
-        {result ? (
-          <>
-            <p className="label-mono">Your result</p>
-            <p className="display text-[36px] md:text-[44px]">{result.title}</p>
-            <p className="text-[16px] leading-[1.55]">{result.body}</p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <CtaLink href="/contact" variant="primary">
-                {result.level === "boring" ? "Get a quote anyway" : "Book a 15-minute call"}
-              </CtaLink>
-              <button
-                type="button"
-                onClick={startAgain}
-                className="text-[14px] underline underline-offset-4"
-              >
-                Start again
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            <p className="label-mono">
-              {answered} of {questions.length} answered
-            </p>
-            <p className="display text-[36px] md:text-[44px]">
-              How boring is your building?
-            </p>
-            <p className="text-[16px] leading-[1.55]">
-              Five questions you can answer from memory. Boring is the goal.
-            </p>
-          </>
-        )}
+      <div className="on-dark flex flex-wrap items-center justify-between gap-4 rounded-[24px] bg-ink px-8 py-7 text-white">
+        <p className="m-0 text-[22px] font-extrabold">{verdict(answers)}</p>
+        <Link href="#contact" className="pop rounded-full bg-highlight px-7 py-4 text-[16px] font-extrabold text-ink no-underline">
+          Book a survey
+        </Link>
       </div>
     </div>
   );

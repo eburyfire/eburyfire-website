@@ -13,9 +13,14 @@ type Row = { record: string; trigger: string; kept: string };
 
 const rows: Row[] = [
   {
-    record: "Enquiry form submissions",
+    record: "Survey requests (Book a survey form)",
     trigger: "Submitted",
     kept: "2 years if no engagement; transferred to customer record if you sign up",
+  },
+  {
+    record: "Careers form details and emailed CVs",
+    trigger: "Last contact from you",
+    kept: "12 months, unless you ask us to delete them sooner",
   },
   {
     record: "Email correspondence",
@@ -43,16 +48,16 @@ export default function RetentionPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Data retention — draft pending legal review"
+        eyebrow="Data retention"
         title="How long we keep things."
       />
 
-      <section className="px-6 md:px-8 pb-20">
-        <div className="mx-auto max-w-[1200px]">
-          <p className="text-[13px] text-stone mb-8">
-            Last updated: 22 October 2026
+      <section className="px-4 pb-20 sm:px-10">
+        <div className="mx-auto w-full max-w-[1240px]">
+          <p className="text-[13px] text-muted mb-8">
+            Last updated: 23 October 2026
           </p>
-          <p className="text-[16px] text-ink leading-[1.7] mb-8 max-w-[720px]">
+          <p className="text-[16px] text-text leading-[1.7] mb-8 max-w-[720px]">
             We don’t keep personal data longer than we need to. The
             table below lists every record type the marketing site touches,
             the reason we hold it, and how long it stays. Records created
@@ -60,17 +65,17 @@ export default function RetentionPage() {
             retention schedule.
           </p>
 
-          <div className="overflow-x-auto max-w-[820px]">
-            <table className="w-full text-[14px] text-ink border-collapse">
+          <div className="overflow-x-auto max-w-[820px]" role="region" aria-label="Retention schedule" tabIndex={0}>
+            <table className="w-full text-[14px] text-text border-collapse">
               <thead>
-                <tr className="text-[11px] uppercase tracking-[0.1em] text-stone">
-                  <th className="text-left py-3 pr-4 font-medium border-b border-rule">
+                <tr className="text-[11px] uppercase tracking-[0.1em] text-muted">
+                  <th className="text-left py-3 pr-4 font-extrabold border-b border-line">
                     Record
                   </th>
-                  <th className="text-left py-3 pr-4 font-medium border-b border-rule">
+                  <th className="text-left py-3 pr-4 font-extrabold border-b border-line">
                     Trigger
                   </th>
-                  <th className="text-left py-3 font-medium border-b border-rule">
+                  <th className="text-left py-3 font-extrabold border-b border-line">
                     We keep it for
                   </th>
                 </tr>
@@ -78,13 +83,13 @@ export default function RetentionPage() {
               <tbody>
                 {rows.map((r) => (
                   <tr key={r.record}>
-                    <td className="py-3 pr-4 align-top border-b border-rule font-medium">
+                    <td className="py-3 pr-4 align-top border-b border-line font-extrabold">
                       {r.record}
                     </td>
-                    <td className="py-3 pr-4 align-top border-b border-rule text-stone">
+                    <td className="py-3 pr-4 align-top border-b border-line text-muted">
                       {r.trigger}
                     </td>
-                    <td className="py-3 align-top border-b border-rule">
+                    <td className="py-3 align-top border-b border-line">
                       {r.kept}
                     </td>
                   </tr>
@@ -94,15 +99,15 @@ export default function RetentionPage() {
           </div>
 
           <div className="max-w-[720px]">
-            <h2 className="text-[20px] md:text-[22px] font-medium tracking-[-0.015em] mt-12 mb-3">
+            <h2 className="text-[20px] md:text-[22px] font-extrabold tracking-[-0.015em] mt-12 mb-3">
               Asking us to delete sooner
             </h2>
-            <p className="text-[16px] text-ink leading-[1.7] mb-3">
+            <p className="text-[16px] text-text leading-[1.7] mb-3">
               You can ask us to delete any data this site holds about you at
               any time. Email{" "}
               <a
                 href={`mailto:${site.contactEmail}`}
-                className="underline underline-offset-2 hover:text-orange"
+                className="underline underline-offset-2 hover:text-blue"
               >
                 {site.contactEmail}
               </a>{" "}
@@ -110,11 +115,11 @@ export default function RetentionPage() {
               line.
             </p>
 
-            <p className="text-[12px] text-stone mt-10">
+            <p className="text-[12px] text-muted mt-10">
               The full privacy notice is{" "}
               <Link
                 href="/privacy"
-                className="underline underline-offset-2 hover:text-orange"
+                className="underline underline-offset-2 hover:text-blue"
               >
                 here
               </Link>

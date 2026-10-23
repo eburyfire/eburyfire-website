@@ -1,74 +1,64 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Archivo, IBM_Plex_Mono, Inter } from "next/font/google";
+import { DM_Serif_Display, Manrope } from "next/font/google";
 import { TopBar } from "@/components/site/TopBar";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "800"],
+  weight: ["400", "500", "700", "800"],
   display: "swap",
 });
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
   subsets: ["latin"],
-  axes: ["wdth"],
+  weight: "400",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
+const defaultTitle = `${site.name} · Keep it boring.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · London fire and life safety`,
+    default: defaultTitle,
     template: `%s · ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
   manifest: "/manifest.json",
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png" }],
-  },
   openGraph: {
     type: "website",
     locale: "en_GB",
     siteName: site.name,
-    title: `${site.name} · London fire and life safety`,
+    title: defaultTitle,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} · London fire and life safety`,
+    title: defaultTitle,
     description: site.description,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1E1B2E",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en-GB"
-      className={`${inter.variable} ${archivo.variable} ${plexMono.variable}`}
-    >
-      <body className="min-h-dvh flex flex-col">
+    <html lang="en-GB" className={`${manrope.variable} ${dmSerif.variable}`}>
+      <body className="flex min-h-dvh flex-col">
         <TopBar />
-        <main className="flex-1 flex flex-col">{children}</main>
+        <main id="main" tabIndex={-1} className="flex flex-1 flex-col focus:outline-none">
+          {children}
+        </main>
         <SiteFooter />
 
         <Script

@@ -2,25 +2,22 @@ import { CtaLink } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <section className="px-6 md:px-8 pt-20 md:pt-28 pb-24">
-      <div className="mx-auto max-w-[1200px]">
-        <p className="label-mono text-ember-ink mb-5">404</p>
-        <h1 className="display-xl text-[72px] md:text-[132px]">
-          Nothing here<span className="text-orange">.</span>
+    <section className="mx-auto w-full max-w-[1240px] px-4 pt-2 pb-24 sm:px-10">
+      <div className="flex flex-col gap-6 rounded-[32px] bg-sand px-6 py-14 sm:px-12 sm:py-20">
+        <p className="eyebrow m-0 text-muted">404</p>
+        <h1 className="display m-0 text-[64px] leading-[1.02] sm:text-[104px]">
+          Nothing <span className="hl">here.</span>
         </h1>
-        <p className="text-[18px] md:text-[20px] text-stone max-w-[560px] mt-6">
-          Which, for a fire alarm firm, is the dream. Let&rsquo;s get you
-          somewhere useful.
+        <p className="m-0 max-w-[560px] text-[19px] leading-[1.5] text-body">
+          Which, for a fire alarm firm, is the dream. Let&rsquo;s get you somewhere useful.
         </p>
-        <div className="flex flex-wrap gap-3 mt-8">
-          <CtaLink href="/" variant="ember">
-            Home
+        <div className="flex flex-wrap gap-3">
+          <CtaLink href="/">Home</CtaLink>
+          <CtaLink href="/services" variant="white">
+            What we do
           </CtaLink>
-          <CtaLink href="/services" variant="outline">
-            Services
-          </CtaLink>
-          <CtaLink href="/contact" variant="outline">
-            Contact
+          <CtaLink href="/articles" variant="white">
+            Articles
           </CtaLink>
         </div>
       </div>

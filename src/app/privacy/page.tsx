@@ -17,32 +17,35 @@ export default function PrivacyPage() {
         eyebrow="Privacy notice"
         title="How we handle your data."
       />
-      <section className="px-6 md:px-8 pb-20">
-        <div className="mx-auto max-w-[1200px]">
-          <p className="text-[13px] text-stone mb-8">
-            Last updated: 22 October 2026
+      <section className="px-4 pb-20 sm:px-10">
+        <div className="mx-auto w-full max-w-[1240px]">
+          <p className="mb-8 text-[14px] text-muted">
+            Last updated: 23 October 2026
           </p>
           <Prose>
-            <h2>Who we are</h2>
+            <h2 id="company">Who we are</h2>
             <p>
               This site is operated by {site.legalName}, trading as{" "}
-              {site.name}. Companies House registration {site.companyNumber}.
-              VAT {site.vat}. We are the data controller for the personal data
-              described below.
+              {site.name}. {site.legalName} is registered in England and Wales,
+              company number {site.companyNumber}. Registered office:{" "}
+              {site.registeredOffice} (a registered-office address for legal
+              post; not open to visitors). VAT number {site.vat}. We are the
+              data controller for the personal data described below.
             </p>
             <p>
               Email{" "}
               <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>{" "}
-              for any privacy question. Marked “Privacy” gets you
+              for any privacy question. Marked &ldquo;Privacy&rdquo; gets you
               to the right person first time.
             </p>
 
             <h2>What we collect on this marketing site</h2>
             <ul>
               <li>
-                <strong>Enquiry forms.</strong> Your name, company, email, and
-                anything you tell us when you fill in a quote or discovery
-                form on this site. We use that to reply to you.
+                <strong>Survey requests.</strong> Your name, your phone number
+                or email, your postcode, the type of building and how many
+                sites, when you fill in the Book a survey form. We use that to
+                reply to you.
               </li>
               <li>
                 <strong>Referral codes.</strong> If you reach us via a partner
@@ -122,8 +125,8 @@ export default function PrivacyPage() {
             </p>
             <p>
               <strong>Who we are.</strong> Ebury Engineering Ltd, trading as
-              Ebury Fire Systems (company number 16942750), 128 City Road,
-              London EC1V 2NX. Contact us at{" "}
+              Ebury Fire Systems (company number 16942750; details under
+              &ldquo;Who we are&rdquo; above). Contact us at{" "}
               <a href="mailto:hello@eburyfire.co.uk">hello@eburyfire.co.uk</a>.
             </p>
             <p>
@@ -257,6 +260,31 @@ export default function PrivacyPage() {
               under &ldquo;Your rights&rdquo; below.
             </p>
 
+            <h2 id="applicants">People who apply to work with us</h2>
+            <p>
+              <strong>What we hold.</strong> The area you&rsquo;re interested
+              in, your name, email address and phone number, anything you add
+              in the notes box, and your CV if you email it to us.
+            </p>
+            <p>
+              <strong>Why we use it, and our lawful basis.</strong> Only to
+              consider you for work with us and to get in touch when something
+              fits. We rely on our legitimate interest in finding people to
+              work with, and on taking steps at your request before any
+              contract.
+            </p>
+            <p>
+              <strong>Where it goes.</strong> The careers form emails your
+              details to our inbox through Resend. It doesn&rsquo;t go into
+              our sales system.
+            </p>
+            <p>
+              <strong>How long we keep it.</strong> 12 months from when you
+              last contacted us, unless you ask us to delete it sooner. If we
+              go on to work together, your details move to your staff or
+              contractor record.
+            </p>
+
             <h2>Your rights</h2>
             <p>
               Under UK GDPR you have the right to access, correct, port,
@@ -277,7 +305,7 @@ export default function PrivacyPage() {
               .
             </p>
 
-            <h2>Cookies</h2>
+            <h2 id="cookies">Cookies</h2>
             <p>
               This marketing site uses only the cookies it needs to function —
               specifically the <code>ebury_referral_code</code> cookie set

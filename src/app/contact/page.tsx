@@ -1,83 +1,36 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { PageHeader } from "@/components/ui/PageHeader";
-import { QuoteForm } from "@/components/site/QuoteForm";
+import { SurveySection } from "@/components/forms/SurveySection";
 import { readReferralCode } from "@/lib/referral";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
-  title: "Contact",
-  description:
-    "Request a quote and we reply within one working day, or book a 15-minute call to talk through your requirements.",
+  title: "Contact us",
+  description: "Book a survey to start your annual plan. We reply within one working day.",
 };
+
+function first(v: string | string[] | undefined): string | undefined {
+  return Array.isArray(v) ? v[0] : v;
+}
 
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams: Promise<{ ref?: string | string[] }>;
+  searchParams: Promise<{ ref?: string | string[]; postcode?: string | string[] }>;
 }) {
   const params = await searchParams;
-  const incomingRef = Array.isArray(params.ref) ? params.ref[0] : params.ref;
-  const referralCode = await readReferralCode(incomingRef);
+  const referralCode = await readReferralCode(first(params.ref));
+  const postcode = (first(params.postcode) ?? "").replace(/[^A-Za-z0-9 ]/g, "").slice(0, 10);
 
   return (
     <>
-      <PageHeader
-        eyebrow="Contact"
-        title="Tell us about your sites."
-        intro="Request a quote, or book a 15-minute call to talk through your requirements. We’ll reply to every enquiry within one working day."
-      />
-
-      <section className="px-6 md:px-8 pb-20">
-        <div className="mx-auto max-w-[1200px] grid gap-12 md:grid-cols-[1fr_320px]">
-          <div className="max-w-[560px]">
-            <QuoteForm referralCode={referralCode} />
-          </div>
-
-          <aside className="grid gap-6 content-start">
-            <div className="bg-surface border border-rule rounded-[6px] p-6">
-              <p className="text-[11px] uppercase tracking-[0.12em] text-stone mb-2">
-                Or email us directly
-              </p>
-              <Link
-                href={`mailto:${site.contactEmail}`}
-                className="text-[15px] text-ink underline underline-offset-2 hover:text-orange"
-              >
-                {site.contactEmail}
-              </Link>
-            </div>
-
-            <div className="bg-surface border border-rule rounded-[6px] p-6">
-              <p className="text-[11px] uppercase tracking-[0.12em] text-stone mb-2">
-                Book a discovery call
-              </p>
-              <p className="text-[14px] text-stone leading-[1.6] mb-4">
-                15 minutes on Zoom or Teams. No obligation.
-              </p>
-              <Link
-                href={`mailto:${site.contactEmail}?subject=Discovery%20call`}
-                className="inline-flex items-center text-[13px] font-medium border border-ink text-ink rounded-[4px] px-[14px] py-[8px] hover:bg-ink hover:text-cream transition-colors"
-              >
-                Email us to book
-              </Link>
-            </div>
-
-            {referralCode ? (
-              <div className="bg-surface border border-rule rounded-[6px] p-6">
-                <p className="text-[11px] uppercase tracking-[0.12em] text-stone mb-1">
-                  Referral
-                </p>
-                <p className="text-[13px] text-ink">
-                  We’ll attribute this enquiry to referral code{" "}
-                  <code className="text-[12px] bg-ink/5 px-1.5 py-0.5 rounded">
-                    {referralCode}
-                  </code>
-                  .
-                </p>
-              </div>
-            ) : null}
-          </aside>
+      <SurveySection id="survey" headingLevel={1} initialPostcode={postcode} referralCode={referralCode} />
+      <section className="mx-auto w-full max-w-[1240px] px-4 pb-20 sm:px-10">
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-[28px] border-2 border-text px-6 py-7 sm:px-10">
+          <p className="m-0 text-[20px] font-extrabold">Rather email?</p>
+          <a href={`mailto:${site.contactEmail}`} className="text-[20px] font-extrabold underline underline-offset-4 hover:text-blue">
+            {site.contactEmail}
+          </a>
         </div>
       </section>
     </>

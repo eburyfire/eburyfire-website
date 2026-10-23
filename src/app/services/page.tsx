@@ -1,130 +1,77 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { CtaLink } from "@/components/ui/Button";
+import { VisitTabs } from "@/components/home/VisitTabs";
+import { OneContractBand } from "@/components/site/WhoTiles";
+import { howItWorks, otherServices, whatWeLookAfter } from "@/lib/content";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/services" },
-  title: "Services",
+  title: "What we do",
   description:
-    "Design, installation, commissioning and maintenance across fire detection and alarm, gas suppression, emergency lighting, aspirating detection, watermist, voice alarm and BS 7273 interface work, in London and the South East.",
+    "Fire alarm servicing to BS 5839-1 and gas suppression maintenance to BS EN 15004, on one annual plan across London and the South East.",
 };
 
-type Service = {
-  id: string;
-  name: string;
-  std: string;
-  body: string[];
-};
-
-const services: Service[] = [
-  {
-    id: "fire-alarm",
-    name: "Fire detection and alarm",
-    std: "BS 5839-1:2025",
-    body: [
-      "Addressable and conventional systems. New installations, takeovers from previous contractors, and ongoing maintenance to BS 5839-1:2025, with servicing approximately every six months.",
-    ],
-  },
-  {
-    id: "gas-suppression",
-    name: "Gas suppression",
-    std: "BS EN 15004 · EC 304/2008",
-    body: [
-      "Total flood and local application systems. FM-200, Novec 1230, Inergen (IG-541), Argonite, CO2, IG-55. To BS EN 15004 and EC 304/2008.",
-    ],
-  },
-  {
-    id: "emergency-lighting",
-    name: "Emergency lighting",
-    std: "BS 5266",
-    body: [
-      "Self-contained and central battery systems, installed and maintained to BS 5266.",
-    ],
-  },
-  {
-    id: "aspirating",
-    name: "Aspirating smoke detection",
-    std: "VESDA",
-    body: [
-      "VESDA aspirating detection for data centres, archives, fine wine vaults, broadcast studios and other valuable rooms that are hard to protect.",
-    ],
-  },
-  {
-    id: "watermist",
-    name: "Watermist and pre-action",
-    std: "BS 8489",
-    body: [
-      "Heritage buildings, high-value rooms, sensitive equipment areas. Installation and maintenance to BS 8489.",
-    ],
-  },
-  {
-    id: "voice-alarm",
-    name: "Voice alarm (PAVA)",
-    std: "BS 5839-8",
-    body: [
-      "Public address and voice alarm systems integrated with fire detection where required. Installation and maintenance to BS 5839-8.",
-    ],
-  },
-  {
-    id: "bs-7273",
-    name: "BS 7273 interface work",
-    std: "BS 7273",
-    body: [
-      "Release mechanism and door retainer interface for compartmentation and means of escape.",
-    ],
-  },
-];
+const h2 = "display m-0 text-[40px] leading-[1.05] sm:text-[56px]";
+const wrap = "mx-auto w-full max-w-[1240px] px-4 sm:px-10";
 
 export default function ServicesPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Services"
-        title="One contractor, end to end."
-        intro="Design, installation, commissioning and maintenance across the full fire and life safety stack, in London and the South East. One contract, one customer portal."
-      />
+        eyebrow="What we do"
+        title="What we look after"
+        intro="One annual plan for your fire alarm and gas suppression: every service visit booked for you, a certificate after each, one invoice. It starts with a survey."
+      >
+        <div className="pt-2">
+          <CtaLink href="/contact#survey">Book a survey</CtaLink>
+        </div>
+      </PageHeader>
 
-      <section className="px-6 md:px-8 pb-16">
-        <div className="mx-auto max-w-[1200px] grid gap-8 md:gap-10">
-          {services.map((s) => (
-            <article
-              key={s.id}
-              id={s.id}
-              className="scroll-mt-24 border-t border-rule pt-8 md:pt-10 grid md:grid-cols-[300px_1fr] gap-6 md:gap-12"
+      <section className={`${wrap} flex flex-col gap-5 pb-16`}>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-4">
+          {whatWeLookAfter.map((w) => (
+            <div
+              key={w.id}
+              id={w.id}
+              className={`rise flex min-h-[200px] scroll-mt-6 flex-col justify-between gap-3 rounded-[28px] ${w.bg} p-9`}
             >
-              <div>
-                <p className="label-mono text-ember-ink mb-2">{s.std}</p>
-                <h2 className="display text-[26px] md:text-[30px]">{s.name}</h2>
-              </div>
-              <div className="max-w-[680px]">
-                {s.body.map((p, i) => (
-                  <p
-                    key={i}
-                    className="text-[16px] text-ink leading-[1.7] mb-3 last:mb-0"
-                  >
-                    {p}
-                  </p>
-                ))}
-              </div>
-            </article>
+              <h2 className="m-0 text-[30px] font-extrabold">{w.name}</h2>
+              <p className="m-0 text-[17px] leading-[1.5] text-body">{w.body}</p>
+            </div>
           ))}
+        </div>
+        <p className="m-0 text-[16px] leading-[1.6] text-body">
+          <strong>Other fire safety services, quoted separately:</strong> {otherServices}
+        </p>
+      </section>
+
+      <section className="bg-sand">
+        <div className={`${wrap} flex flex-col gap-7 py-20`}>
+          <h2 className={`rise ${h2}`}>What a service visit includes</h2>
+          <div className="rise">
+            <VisitTabs idPrefix="services-visit" />
+          </div>
         </div>
       </section>
 
-      <section className="bg-orange text-ink px-6 md:px-8 py-16 md:py-20">
-        <div className="mx-auto max-w-[1200px] flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-            <h2 className="display text-[32px] md:text-[44px] mb-2">
-              Send us your site list.
-            </h2>
-            <p className="text-[15px]">
-              We reply to every enquiry within one working day.
-            </p>
-          </div>
-          <CtaLink href="/contact" variant="primary">
-            Get a quote
-          </CtaLink>
-        </div>
+      <section className={`${wrap} flex flex-col gap-7 py-20`}>
+        <h2 className={`rise ${h2}`}>How it works</h2>
+        <ol className="rise m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4 p-0">
+          {howItWorks.map((s) => (
+            <li key={s.n} className="flex flex-col gap-2.5 rounded-[24px] border-2 border-text p-7">
+              <span className="display text-[44px]" aria-hidden="true">
+                {s.n}
+              </span>
+              <span className="text-[20px] font-extrabold">
+                <span className="sr-only">Step {s.n}: </span>
+                {s.name}
+              </span>
+              <span className="text-[15px] leading-[1.45] text-body">{s.body}</span>
+            </li>
+          ))}
+        </ol>
+        <OneContractBand href="/contact#survey" />
       </section>
     </>
   );

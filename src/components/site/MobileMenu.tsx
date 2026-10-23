@@ -27,14 +27,20 @@ export function MobileMenu({ children }: { children: React.ReactNode }) {
   return (
     <details
       ref={ref}
-      className="xl:hidden group"
+      className="xl:hidden"
+      onBlur={(e) => {
+        // Close when keyboard focus leaves the menu.
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+          ref.current?.removeAttribute("open");
+        }
+      }}
       onClick={(e) => {
         if ((e.target as HTMLElement).closest("a")) {
           ref.current?.removeAttribute("open");
         }
       }}
     >
-      <summary className="list-none cursor-pointer select-none label-mono text-ink border border-ink rounded-[4px] px-3 py-2 [&::-webkit-details-marker]:hidden">
+      <summary className="cursor-pointer list-none select-none rounded-full bg-sand px-5 py-3 text-[16px] font-extrabold [&::-webkit-details-marker]:hidden">
         Menu
       </summary>
       {children}
