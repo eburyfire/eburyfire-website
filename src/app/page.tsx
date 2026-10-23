@@ -300,7 +300,7 @@ export default function Home() {
       {/* Ask the same of the building */}
       <section className="bg-orange text-ink px-6 md:px-8 py-20 md:py-24">
         <div className="mx-auto max-w-[1200px]">
-          <h2 className="label-mono mb-5">Ask the same of the building</h2>
+          <h2 className="label-mono font-normal mb-5">Ask the same of the building</h2>
           <div className="grid gap-x-10 gap-y-12 md:grid-cols-2">
             {askTheSame.map((a) => (
               <Reveal key={a.who}>

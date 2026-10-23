@@ -39,10 +39,14 @@ export function RotatingLine({
         }, 300);
       }, intervalMs);
     };
+    const onMotionChange = () => {
+      setFading(false);
+      start();
+    };
     start();
-    mq.addEventListener("change", start);
+    mq.addEventListener("change", onMotionChange);
     return () => {
-      mq.removeEventListener("change", start);
+      mq.removeEventListener("change", onMotionChange);
       stop();
     };
   }, [paused, lines.length, intervalMs]);

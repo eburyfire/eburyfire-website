@@ -25,7 +25,15 @@ export function MobileMenu({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <details ref={ref} className="xl:hidden group">
+    <details
+      ref={ref}
+      className="xl:hidden group"
+      onClick={(e) => {
+        if ((e.target as HTMLElement).closest("a")) {
+          ref.current?.removeAttribute("open");
+        }
+      }}
+    >
       <summary className="list-none cursor-pointer select-none label-mono text-ink border border-ink rounded-[4px] px-3 py-2 [&::-webkit-details-marker]:hidden">
         Menu
       </summary>
