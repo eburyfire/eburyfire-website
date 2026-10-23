@@ -5,6 +5,7 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 import { readReferralCode } from "@/lib/referral";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/signup" },
   title: "Welcome",
   description:
     "Welcome — let’s get you set up. Tell us about your buildings and we’ll be in touch within one working day.",

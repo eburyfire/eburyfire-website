@@ -4,6 +4,7 @@ import { CtaLink } from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pricing" },
   title: "Pricing",
   description:
     "Maintenance priced per site, per year, fixed in writing after a short survey. Call-outs charged separately. Project work by quote. Discovery calls 15 minutes, no obligation.",
@@ -21,8 +22,8 @@ export default function PricingPage() {
       <section className="px-6 md:px-8 pb-12">
         <div className="mx-auto max-w-[1200px] grid gap-6 md:gap-10 md:grid-cols-2 bg-surface border border-rule rounded-[6px] p-8 md:p-12">
           <div>
-            <p className="text-[14px] text-stone mb-2">Maintenance</p>
-            <p className="text-[40px] md:text-[48px] font-medium tracking-[-0.025em] leading-none">
+            <p className="label-mono text-ember-ink mb-3">Maintenance</p>
+            <p className="display text-[44px] md:text-[56px] leading-none">
               per site, per year
             </p>
             <p className="text-[14px] text-stone mt-3">
@@ -30,8 +31,8 @@ export default function PricingPage() {
             </p>
           </div>
           <div>
-            <p className="text-[14px] text-stone mb-2">Project work</p>
-            <p className="text-[40px] md:text-[48px] font-medium tracking-[-0.025em] leading-none">
+            <p className="label-mono text-ember-ink mb-3">Project work</p>
+            <p className="display text-[44px] md:text-[56px] leading-none">
               by quote
             </p>
           </div>
@@ -41,19 +42,20 @@ export default function PricingPage() {
       <section className="px-6 md:px-8 py-12 md:py-16">
         <div className="mx-auto max-w-[1200px] grid gap-10 md:grid-cols-2">
           <div>
-            <h2 className="text-[22px] md:text-[26px] font-medium tracking-[-0.02em] mb-4">
+            <h2 className="display text-[26px] md:text-[32px] mb-4">
               What’s included in maintenance
             </h2>
             <p className="text-[16px] text-ink leading-[1.7]">
               Fire detection and alarm servicing to BS 5839-1:2025,
               approximately every six months, gas suppression servicing to BS
-              EN 15004, and other systems to their own standards. Visit reports and certificates are filed in your
-              customer portal, with your log book entries and asset register.
-              One contract across every site.
+              EN 15004, and other systems to their own standards. Visit
+              reports and certificates are filed in your customer portal, with
+              your log book entries and asset register. One contract across
+              every site.
             </p>
           </div>
           <div>
-            <h2 className="text-[22px] md:text-[26px] font-medium tracking-[-0.02em] mb-4">
+            <h2 className="display text-[26px] md:text-[32px] mb-4">
               What’s quoted separately
             </h2>
             <p className="text-[16px] text-ink leading-[1.7]">
@@ -65,12 +67,12 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-8 py-16 md:py-20 border-t border-rule">
+      <section className="bg-orange text-ink px-6 md:px-8 py-16 md:py-20">
         <div className="mx-auto max-w-[1200px]">
-          <h2 className="text-[26px] md:text-[32px] font-medium tracking-[-0.02em] leading-[1.1] mb-3">
+          <h2 className="display text-[32px] md:text-[44px] mb-3">
             Get a quote tailored to your buildings.
           </h2>
-          <p className="text-[16px] text-stone max-w-[620px] mb-7">
+          <p className="text-[16px] max-w-[620px] mb-7">
             Discovery calls run on Zoom or Teams, 15 minutes, no obligation.
           </p>
           <div className="flex flex-wrap gap-3">

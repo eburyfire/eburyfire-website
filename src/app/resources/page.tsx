@@ -4,6 +4,7 @@ import { ResourceFilters } from "@/components/site/ResourceFilters";
 import { fetchResources } from "@/lib/resources";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources" },
   title: "Resources",
   description:
     "Compliance briefings, technical explainers, and operational guidance for buildings under UK regulation.",

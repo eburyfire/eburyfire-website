@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter } from "next/font/google";
+import { Archivo, IBM_Plex_Mono, Inter } from "next/font/google";
 import { TopBar } from "@/components/site/TopBar";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { site } from "@/lib/site";
@@ -10,6 +10,20 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "800"],
+  display: "swap",
+});
+
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  axes: ["wdth"],
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -34,25 +48,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     siteName: site.name,
-    url: site.url,
     title: `${site.name} · London fire and life safety`,
     description: site.description,
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} · London fire and life safety`,
     description: site.description,
-    images: ["/og-image.png"],
   },
-  alternates: { canonical: site.url },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB" className={inter.variable}>
+    <html
+      lang="en-GB"
+      className={`${inter.variable} ${archivo.variable} ${plexMono.variable}`}
+    >
       <body className="min-h-dvh flex flex-col">
         <TopBar />
         <main className="flex-1 flex flex-col">{children}</main>
