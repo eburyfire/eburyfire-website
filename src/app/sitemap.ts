@@ -7,11 +7,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     "",
     "/services",
+    "/who-we-work-with",
     "/landlords",
-    "/pricing",
     "/about",
-    "/resources",
+    "/articles",
     "/contact",
+    "/careers",
+    "/pricing",
     "/privacy",
     "/data-retention",
     "/accessibility",
@@ -24,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const articles = await fetchResources();
   const articleRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
-    url: `${site.url}/resources/${a.slug}`,
+    url: `${site.url}/articles/${a.slug}`,
     lastModified: new Date(a.publishedAt),
     changeFrequency: "yearly",
     priority: 0.5,

@@ -1,91 +1,44 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { CtaLink } from "@/components/ui/Button";
-import { site } from "@/lib/site";
+import { compare, howItWorks, otherServices } from "@/lib/content";
 
+// No Ebury price appears anywhere on the site (founder rule). This page
+// explains how the price is set: fixed in writing after a survey.
 export const metadata: Metadata = {
   alternates: { canonical: "/pricing" },
-  title: "Pricing",
+  title: "Fixed price after a survey",
   description:
-    "Maintenance priced per site, per year, fixed in writing after a short survey. Call-outs charged separately. Project work by quote. Discovery calls 15 minutes, no obligation.",
+    "One price for the year’s servicing, agreed in writing before we start. It starts with a survey.",
 };
+
+const price = compare.find((c) => c.topic === "Your price")!;
 
 export default function PricingPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Pricing"
-        title="Plain. Fixed in writing."
-        intro="Maintenance is per site, per year, fixed in writing after we’ve seen the building. Project work is quoted on the actual scope: every installation, commissioning and upgrade."
-      />
-
-      <section className="px-6 md:px-8 pb-12">
-        <div className="mx-auto max-w-[1200px] grid gap-6 md:gap-10 md:grid-cols-2 bg-surface border border-rule rounded-[6px] p-8 md:p-12">
-          <div>
-            <p className="label-mono text-ember-ink mb-3">Maintenance</p>
-            <p className="display text-[44px] md:text-[56px] leading-none">
-              per site, per year
-            </p>
-            <p className="text-[14px] text-stone mt-3">
-              Fixed in writing after a short survey.
-            </p>
-          </div>
-          <div>
-            <p className="label-mono text-ember-ink mb-3">Project work</p>
-            <p className="display text-[44px] md:text-[56px] leading-none">
-              by quote
-            </p>
-          </div>
+        eyebrow="Price"
+        title={
+          <>
+            Fixed price, <span className="hl">in writing.</span>
+          </>
+        }
+        intro={howItWorks[1].body}
+      >
+        <div className="pt-2">
+          <CtaLink href="/contact#survey">Book a survey</CtaLink>
         </div>
-      </section>
+      </PageHeader>
 
-      <section className="px-6 md:px-8 py-12 md:py-16">
-        <div className="mx-auto max-w-[1200px] grid gap-10 md:grid-cols-2">
-          <div>
-            <h2 className="display text-[26px] md:text-[32px] mb-4">
-              What’s included in maintenance
-            </h2>
-            <p className="text-[16px] text-ink leading-[1.7]">
-              Fire detection and alarm servicing to BS 5839-1:2025,
-              approximately every six months, gas suppression servicing to BS
-              EN 15004, and other systems to their own standards. Visit
-              reports and certificates are filed in your customer portal, with
-              your log book entries and asset register. One contract across
-              every site.
-            </p>
-          </div>
-          <div>
-            <h2 className="display text-[26px] md:text-[32px] mb-4">
-              What’s quoted separately
-            </h2>
-            <p className="text-[16px] text-ink leading-[1.7]">
-              New system design, installation and commissioning. System
-              upgrades and modifications. Fire risk assessments. Call-outs,
-              charged separately. Work outside the agreed maintenance scope.
-            </p>
-          </div>
+      <section className="mx-auto grid w-full max-w-[1240px] gap-4 px-4 pb-20 sm:px-10 md:grid-cols-2">
+        <div className="rise flex flex-col gap-3 rounded-[28px] bg-highlight p-8 sm:p-10">
+          <h2 className="m-0 text-[26px] font-extrabold">Your price</h2>
+          <p className="m-0 text-[17px] leading-[1.6]">{price.us}</p>
         </div>
-      </section>
-
-      <section className="bg-orange text-ink px-6 md:px-8 py-16 md:py-20">
-        <div className="mx-auto max-w-[1200px]">
-          <h2 className="display text-[32px] md:text-[44px] mb-3">
-            Get a quote tailored to your buildings.
-          </h2>
-          <p className="text-[16px] max-w-[620px] mb-7">
-            Discovery calls run on Zoom or Teams, 15 minutes, no obligation.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <CtaLink href="/contact" variant="primary">
-              Get a quote
-            </CtaLink>
-            <CtaLink
-              href={`mailto:${site.contactEmail}?subject=Discovery%20call`}
-              variant="outline"
-            >
-              Email us to book
-            </CtaLink>
-          </div>
+        <div className="rise flex flex-col gap-3 rounded-[28px] bg-sand p-8 sm:p-10">
+          <h2 className="m-0 text-[26px] font-extrabold">Other fire safety services</h2>
+          <p className="m-0 text-[17px] leading-[1.6]">Quoted separately: {otherServices}</p>
         </div>
       </section>
     </>

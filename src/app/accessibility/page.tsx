@@ -13,8 +13,8 @@ export default function AccessibilityPage() {
   return (
     <>
       <PageHeader eyebrow="Accessibility" title="Accessibility statement" />
-      <section className="px-6 md:px-8 pb-20">
-        <div className="mx-auto max-w-[1200px]">
+      <section className="px-4 pb-20 sm:px-10">
+        <div className="mx-auto w-full max-w-[1240px]">
           <Prose>
             <p>
               We aim to meet WCAG 2.2 AA. If you find anything that

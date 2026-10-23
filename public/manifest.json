@@ -1,25 +1,25 @@
 {
   "name": "Ebury Fire Systems",
   "short_name": "Ebury Fire",
-  "description": "Fire and life safety systems across London and the South East, under one contract.",
+  "description": "Fire alarm and gas suppression servicing across London and the South East.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#F5F1EC",
-  "theme_color": "#F26522",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1E1B2E",
   "icons": [
     {
       "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }

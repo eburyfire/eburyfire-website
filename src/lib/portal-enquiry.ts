@@ -54,7 +54,6 @@ export function isHoneypot(website: string | undefined): boolean {
 
 /** Text Postgres can store: no NUL or other control characters (newlines and tabs kept), no lone surrogates. */
 export function storable(s: string): string {
-  // eslint-disable-next-line no-control-regex
   return s.toWellFormed().replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, "");
 }
 

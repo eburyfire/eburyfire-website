@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test src/lib/portal-enquiry.test.ts src/lib/boring-check.test.ts"
+    "test": "node --test src/lib/portal-enquiry.test.ts src/lib/boring-check.test.ts src/lib/survey.test.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

@@ -1,40 +1,25 @@
 import { site } from "@/lib/site";
-
-type EnquiryPayload = {
-  companyName: string;
-  contactName: string;
-  email: string;
-  numberOfSites?: string;
-  currentProvider?: string;
-  urgency: string;
-  message?: string;
-  referralCode?: string;
-};
+import type { SurveyInput } from "@/lib/survey";
 
 const baseStyles = `
-  body { margin: 0; padding: 0; background: #F5F1EC; font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; color: #1A1A1A; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; padding: 0; background: #F1EDE7; font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111111; -webkit-font-smoothing: antialiased; }
   .wrap { max-width: 560px; margin: 0 auto; padding: 32px 24px; }
-  .card { background: #ffffff; border-radius: 8px; padding: 32px; border: 1px solid rgba(26,26,26,0.08); }
-  .brand { font-size: 20px; font-weight: 500; letter-spacing: -0.02em; color: #1A1A1A; }
-  .brand .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #F26522; vertical-align: middle; margin: 0 2px 3px 2px; }
-  .brand .sub { font-size: 13px; font-weight: 300; color: #6F6A60; margin-left: 4px; }
-  h1 { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; margin: 24px 0 12px; color: #1A1A1A; }
-  p { font-size: 15px; line-height: 1.6; color: #1A1A1A; margin: 0 0 12px; }
-  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #6F6A60; margin: 18px 0 4px; }
-  .value { font-size: 15px; color: #1A1A1A; }
-  .rule { height: 1px; background: rgba(26,26,26,0.08); margin: 20px 0; }
-  .foot { font-size: 12px; color: #6F6A60; margin-top: 16px; }
-  a { color: #F26522; text-decoration: none; }
+  .card { background: #ffffff; border-radius: 24px; padding: 32px; }
+  .brand { font-family: Georgia, "Times New Roman", serif; font-size: 28px; color: #1E1B2E; }
+  .brand .dot { color: #1D3BC4; }
+  h1 { font-size: 22px; font-weight: 800; margin: 24px 0 12px; color: #111111; }
+  p { font-size: 15px; line-height: 1.6; color: #111111; margin: 0 0 12px; }
+  .label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A4A; margin: 18px 0 4px; }
+  .value { font-size: 15px; color: #111111; }
+  .rule { height: 1px; background: #D8D2C8; margin: 20px 0; }
+  .foot { font-size: 12px; color: #4A4A4A; margin-top: 16px; }
+  a { color: #1D3BC4; }
 `;
 
-const wordmark = `
-  <div class="brand">
-    ebury<span class="dot"></span><span class="sub">fire systems</span>
-  </div>
-`;
+const wordmark = `<div class="brand">Ebury<span class="dot">.</span></div>`;
 
-function esc(s: string | undefined | null): string {
-  if (!s) return "";
+export function esc(s: string | number | undefined | null): string {
+  if (s === undefined || s === null || s === "") return "";
   return String(s)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -42,58 +27,76 @@ function esc(s: string | undefined | null): string {
     .replace(/"/g, "&quot;");
 }
 
-export function enquiryInternalTemplate(p: EnquiryPayload, crm?: string) {
-  const rows: Array<[string, string | undefined]> = [
-    ["Portal CRM", crm],
-    ["Company", p.companyName],
-    ["Contact", p.contactName],
-    ["Email", p.email],
-    ["Number of sites", p.numberOfSites],
-    ["Current provider", p.currentProvider],
-    ["Urgency", p.urgency],
-    ["Anything to flag", p.message],
-    ["Referral code", p.referralCode],
-  ];
-
-  const rowsHtml = rows
-    .filter(([, v]) => v && v.length)
-    .map(
-      ([k, v]) =>
-        `<p class="label">${esc(k)}</p><div class="value">${esc(v).replace(/\n/g, "<br>")}</div>`,
-    )
+function rowsHtml(rows: Array<[string, string | number | undefined]>): string {
+  return rows
+    .filter(([, v]) => v !== undefined && String(v).length > 0)
+    .map(([k, v]) => `<p class="label">${esc(k)}</p><div class="value">${esc(v).replace(/\n/g, "<br>")}</div>`)
     .join("");
+}
 
+function page(inner: string): string {
   return `<!doctype html><html><head><meta charset="utf-8"><style>${baseStyles}</style></head>
-  <body><div class="wrap"><div class="card">
-    ${wordmark}
-    <h1>New enquiry from ${esc(p.companyName)}</h1>
-    <p>A new quote enquiry has been submitted via eburyfire.co.uk/contact.</p>
-    <div class="rule"></div>
-    ${rowsHtml}
-    <div class="rule"></div>
-    <p class="foot">Reply directly to this email to respond to ${esc(p.contactName)}.</p>
-  </div></div></body></html>`;
+  <body><div class="wrap"><div class="card">${wordmark}${inner}</div></div></body></html>`;
 }
 
-export function enquiryAcknowledgementTemplate(p: EnquiryPayload) {
-  return `<!doctype html><html><head><meta charset="utf-8"><style>${baseStyles}</style></head>
-  <body><div class="wrap"><div class="card">
-    ${wordmark}
-    <h1>Thanks, ${esc(p.contactName)}.</h1>
-    <p>We&rsquo;ve got your enquiry and we&rsquo;ll be in touch within one working day.</p>
-    <p>In the meantime, if you want to add anything — site list, renewal dates, the contractor you&rsquo;re leaving — just reply to this email.</p>
+export function surveyInternalTemplate(s: SurveyInput, crm: string) {
+  return page(`
+    <h1>Survey request from ${esc(s.name)}</h1>
+    <p>Sent from the Book a survey form on eburyfire.co.uk.</p>
     <div class="rule"></div>
-    <p class="foot">
-      ${site.name} &middot; ${site.legalName} &middot; Company No. ${site.companyNumber}<br>
-      <a href="${site.url}">eburyfire.co.uk</a> &middot; <a href="mailto:${site.contactEmail}">${site.contactEmail}</a>
-    </p>
-  </div></div></body></html>`;
+    ${rowsHtml([
+      ["Portal CRM", crm],
+      ["Name", s.name],
+      ["Phone or email", s.contact],
+      ["Postcode", s.postcode],
+      ["Type of building", s.buildingType],
+      ["How many sites", s.sites],
+      ["Referral code", s.referralCode],
+    ])}
+  `);
 }
 
-export function enquirySubjectInternal(p: EnquiryPayload) {
-  return `New enquiry · ${p.companyName} · ${p.urgency}`;
+export function surveySubjectInternal(s: SurveyInput) {
+  return `Survey request · ${s.buildingType} · ${s.postcode} · ${s.sites} site${s.sites === 1 ? "" : "s"}`;
 }
 
-export function enquirySubjectAck() {
-  return `Thanks — we’ll be in touch within one working day`;
+export function surveyAcknowledgementTemplate(s: SurveyInput) {
+  return page(`
+    <h1>Thanks, ${esc(s.name)}.</h1>
+    <p>We&rsquo;ve got your survey request and we&rsquo;ll reply within one working day.</p>
+    <p>Want to add anything, like a site list or when your current contract ends? Just reply to this email.</p>
+    <div class="rule"></div>
+    <p class="foot">${site.name} &middot; <a href="${site.url}">eburyfire.co.uk</a> &middot; <a href="mailto:${site.contactEmail}">${site.contactEmail}</a></p>
+  `);
+}
+
+export function surveySubjectAck() {
+  return "Thanks. We’ll reply within one working day";
+}
+
+export type CareersInput = {
+  area: string;
+  name: string;
+  email: string;
+  phone: string;
+  notes?: string;
+};
+
+export function careersInternalTemplate(c: CareersInput) {
+  return page(`
+    <h1>Careers: ${esc(c.name)}</h1>
+    <p>Sent from eburyfire.co.uk/careers. Their CV should follow by email.</p>
+    <div class="rule"></div>
+    ${rowsHtml([
+      ["Area", c.area],
+      ["Name", c.name],
+      ["Email", c.email],
+      ["Phone", c.phone],
+      ["Anything we should know", c.notes],
+    ])}
+  `);
+}
+
+export function careersSubjectInternal(c: CareersInput) {
+  return `Careers · ${c.area} · ${c.name}`;
 }
