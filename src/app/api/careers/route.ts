@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 
 const careersSchema = z.object({
   area: z.enum(careerAreas, { message: "Choose an area" }),
-  name: z.string().trim().min(1, "Enter your name").max(200),
+  name: z.string().trim().min(1, "Enter your name").max(200).regex(/^[^\r\n]+$/, "Enter your name on one line"),
   email: z.string().trim().toLowerCase().email("Enter a valid email"),
   phone: z
     .string()
