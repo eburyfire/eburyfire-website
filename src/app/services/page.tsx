@@ -89,13 +89,11 @@ export default function ServicesPage() {
             <article
               key={s.id}
               id={s.id}
-              className="scroll-mt-24 border-t border-rule pt-8 md:pt-10 grid md:grid-cols-[220px_1fr] gap-6 md:gap-12"
+              className="scroll-mt-24 border-t border-rule pt-8 md:pt-10 grid md:grid-cols-[300px_1fr] gap-6 md:gap-12"
             >
               <div>
-                <h2 className="text-[20px] md:text-[22px] font-medium tracking-[-0.015em]">
-                  {s.name}
-                </h2>
-                <p className="text-[12px] text-stone mt-1">{s.std}</p>
+                <p className="label-mono text-ember-ink mb-2">{s.std}</p>
+                <h2 className="display text-[26px] md:text-[30px]">{s.name}</h2>
               </div>
               <div className="max-w-[680px]">
                 {s.body.map((p, i) => (
@@ -112,13 +110,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-8 py-16 md:py-20 border-t border-rule">
+      <section className="bg-orange text-ink px-6 md:px-8 py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
-            <h2 className="text-[26px] md:text-[32px] font-medium tracking-[-0.02em] leading-[1.1] mb-2">
+            <h2 className="display text-[32px] md:text-[44px] mb-2">
               Send us your site list.
             </h2>
-            <p className="text-[15px] text-stone">
+            <p className="text-[15px]">
               We reply to every enquiry within one working day.
             </p>
           </div>
