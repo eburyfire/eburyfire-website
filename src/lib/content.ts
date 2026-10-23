@@ -103,7 +103,7 @@ export const onTheDay = [
   { name: "Booked ahead", body: "You know the date and time well before the visit." },
   { name: "Explained", body: "Before the visit ends, you’re told what was tested and what was found." },
   { name: "Tidy", body: "Covers back on, ceilings clean, nothing left behind." },
-  { name: "One number", body: "Ring the same number, whatever the question." },
+  { name: "Written up", body: "The certificate and visit notes land in your portal after every visit." },
 ] as const;
 
 export const faqs = [
