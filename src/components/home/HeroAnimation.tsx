@@ -87,7 +87,7 @@ export function HeroAnimation() {
   return (
     <div
       ref={wrapRef}
-      className="on-dark flex min-w-0 flex-[2_1_340px] flex-col justify-between gap-6 overflow-hidden rounded-[32px] bg-ink p-4 text-white sm:p-6"
+      className="on-dark flex min-w-0 flex-[2_1_340px] flex-col justify-center gap-6 overflow-hidden rounded-[32px] bg-ink p-4 text-white sm:p-6"
     >
       <div className="relative aspect-video w-full overflow-hidden rounded-[22px] bg-sand">
         <video
