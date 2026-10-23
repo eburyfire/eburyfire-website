@@ -64,7 +64,7 @@ export default function LandlordsPage() {
               </p>
               <p>
                 The rules are in the Regulatory Reform (Fire Safety) Order 2005,
-                articles 5 and 17. The lease decides who does what in your
+                articles 3, 5 and 17. The lease decides who does what in your
                 building.
               </p>
             </div>
