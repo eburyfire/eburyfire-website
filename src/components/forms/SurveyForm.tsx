@@ -176,13 +176,14 @@ export function SurveyForm({
         {err("sites")}
       </div>
       {/* Pills, not a <select>: the open list of a native select can't be styled. */}
-      <fieldset
-        className="m-0 flex min-w-0 flex-col gap-2.5 border-0 p-0 sm:col-span-2"
-        aria-describedby={described("buildingType")}
-      >
-        <legend className="mb-2.5 p-0 text-[15px] font-bold">Type of building *</legend>
+      <fieldset className="m-0 flex min-w-0 flex-col gap-2.5 border-0 p-0 sm:col-span-2">
+        <legend id={`${uid}-buildingType-legend`} className="mb-2.5 p-0 text-[15px] font-bold">
+          Type of building *
+        </legend>
         <div
           role="radiogroup"
+          aria-labelledby={`${uid}-buildingType-legend`}
+          aria-describedby={described("buildingType")}
           aria-required="true"
           aria-invalid={fields.buildingType ? true : undefined}
           className="flex flex-wrap gap-2"
