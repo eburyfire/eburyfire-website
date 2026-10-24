@@ -37,7 +37,7 @@ export function SurveyForm({
   // One id per form instance: a resubmit after an error is the same request.
   const formIdRef = useRef<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
-  const typeRef = useRef<HTMLSelectElement>(null);
+  const typeRef = useRef<HTMLInputElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
   const uid = useId();
 
@@ -56,7 +56,9 @@ export function SurveyForm({
   useEffect(() => {
     if (state.kind === "success") successRef.current?.focus();
     if (state.kind === "error") {
-      const bad = formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]');
+      let bad = formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]');
+      // A radio group isn't focusable itself: focus its first option.
+      if (bad?.getAttribute("role") === "radiogroup") bad = bad.querySelector<HTMLElement>("input");
       (bad ?? formRef.current?.querySelector<HTMLElement>('[data-form-error]'))?.focus();
     }
   }, [state]);
@@ -158,30 +160,6 @@ export function SurveyForm({
       </div>
       <div className="flex flex-col gap-1.5">
         <label className={labelClass}>
-        Type of building *
-        <select
-          ref={typeRef}
-          name="buildingType"
-          required
-          defaultValue=""
-          aria-invalid={fields.buildingType ? true : undefined}
-          aria-describedby={described("buildingType")}
-          className={inputClass}
-        >
-          <option value="" disabled>
-            Choose one
-          </option>
-          {buildingTypes.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
-        </label>
-        {err("buildingType")}
-      </div>
-      <div className="flex flex-col gap-1.5">
-        <label className={labelClass}>
         How many sites? *
         <input
           name="sites"
@@ -197,6 +175,37 @@ export function SurveyForm({
         </label>
         {err("sites")}
       </div>
+      {/* Pills, not a <select>: the open list of a native select can't be styled. */}
+      <fieldset className="m-0 flex min-w-0 flex-col gap-2.5 border-0 p-0 sm:col-span-2">
+        <legend id={`${uid}-buildingType-legend`} className="mb-2.5 p-0 text-[15px] font-bold">
+          Type of building *
+        </legend>
+        <div
+          role="radiogroup"
+          aria-labelledby={`${uid}-buildingType-legend`}
+          aria-describedby={described("buildingType")}
+          aria-required="true"
+          aria-invalid={fields.buildingType ? true : undefined}
+          className="flex flex-wrap gap-2"
+        >
+          {buildingTypes.map((t, i) => (
+            <label key={t} className="cursor-pointer">
+              <input
+                ref={i === 0 ? typeRef : undefined}
+                type="radio"
+                name="buildingType"
+                value={t}
+                required
+                className="peer sr-only"
+              />
+              <span className="pop inline-flex min-h-11 items-center rounded-full border border-line bg-white px-4 py-2 text-[15px] font-bold text-text transition-colors peer-checked:border-ink peer-checked:bg-highlight peer-focus-visible:outline-3 peer-focus-visible:outline-offset-3 peer-focus-visible:outline-blue">
+                {t}
+              </span>
+            </label>
+          ))}
+        </div>
+        {err("buildingType")}
+      </fieldset>
       <div className="flex flex-col gap-1.5">
         <label className={labelClass}>
         Name *
@@ -211,7 +220,7 @@ export function SurveyForm({
         </label>
         {err("name")}
       </div>
-      <div className="flex flex-col gap-1.5 sm:col-span-2">
+      <div className="flex flex-col gap-1.5">
         <label className={labelClass}>
         Phone or email *
         <input
