@@ -1,9 +1,6 @@
 allowBuilds:
-  sharp: set this to true or false
-  unrs-resolver: set this to true or false
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
+  sharp: true
+  unrs-resolver: true
 # Security floors for transitive dependencies (22 Oct 2026, pnpm audit).
 # Same-major patch releases only; drop each once the parent ships it.
 overrides:
