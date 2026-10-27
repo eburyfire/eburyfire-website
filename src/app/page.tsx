@@ -18,22 +18,10 @@ import {
   whatWeLookAfter,
   faqs,
 } from "@/lib/content";
-import { site } from "@/lib/site";
+import { jsonLdHtml, orgJsonLd } from "@/lib/jsonld";
 
 // The approved redesign v2 home page (sample E, founder 23 Oct 2026):
 // section order and copy word for word.
-
-const orgJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.name,
-  url: site.url,
-  logo: `${site.url}/brand/ebury-wordmark.svg`,
-  slogan: site.tagline,
-  description: site.description,
-  email: site.contactEmail,
-  areaServed: ["London", "South East England"],
-};
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -57,7 +45,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([orgJsonLd, faqJsonLd]).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml([orgJsonLd, faqJsonLd]) }}
       />
 
       {/* Hero */}

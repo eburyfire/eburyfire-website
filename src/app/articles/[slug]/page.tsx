@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CtaLink } from "@/components/ui/Button";
 import { categoryLabel, fetchResourceBySlug, fetchResources, formatPublished } from "@/lib/resources";
 import { site } from "@/lib/site";
+import { jsonLdHtml, orgId } from "@/lib/jsonld";
 
 export const dynamicParams = false;
 
@@ -43,13 +44,13 @@ export default async function Article({ params }: { params: Promise<{ slug: stri
     headline: item.title,
     description: item.excerpt,
     datePublished: item.publishedAt,
-    publisher: { "@type": "Organization", name: site.name, url: site.url },
+    publisher: { "@type": "Organization", "@id": orgId, name: site.name, url: site.url },
     mainEntityOfPage: `${site.url}/articles/${slug}`,
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdHtml(jsonLd) }} />
       <article className="mx-auto w-full max-w-[1240px] px-4 pb-16 sm:px-10">
         <div className="rounded-[32px] bg-sand px-6 py-6 sm:px-12">
           <p className="m-0 flex flex-wrap items-center gap-x-3 gap-y-1 text-[14px] font-bold text-muted">
