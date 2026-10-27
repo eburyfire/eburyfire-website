@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import { securityHeaders } from "./src/lib/security-headers";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  poweredByHeader: false,
+  async headers() {
+    return [{ source: "/(.*)", headers: securityHeaders }];
+  },
   async redirects() {
     return [
       // Blog and Resources merged into Articles (redesign v2). Order matters:
