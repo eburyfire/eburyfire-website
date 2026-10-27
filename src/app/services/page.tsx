@@ -4,6 +4,7 @@ import { CtaLink } from "@/components/ui/Button";
 import { VisitTabs } from "@/components/home/VisitTabs";
 import { OneContractBand } from "@/components/site/WhoTiles";
 import { howItWorks, otherServices, whatWeLookAfter } from "@/lib/content";
+import { jsonLdHtml, servicesJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/services" },
@@ -18,6 +19,7 @@ const wrap = "mx-auto w-full max-w-[1240px] px-4 sm:px-10";
 export default function ServicesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdHtml(servicesJsonLd) }} />
       <PageHeader
         eyebrow="What we do"
         title="What we look after"
